@@ -1,0 +1,8 @@
+pages\BasePage.class
+runners\GeneralRunner.class
+pages\BookingHomePage.class
+tests\BookingTests.class
+tests\ReportTest.class
+tests\BaseTest.class
+steps\BaseSteps.class
+steps\BookingSteps.class

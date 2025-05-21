@@ -1,0 +1,109 @@
+{
+  "uid" : "470e07a603e3b5ed",
+  "name" : "Runs Cucumber Scenarios",
+  "fullName" : "io.cucumber.testng.AbstractTestNGCucumberTests.runScenario",
+  "historyId" : "f17ed54a94d60b913b15a89808bacbff",
+  "time" : {
+    "start" : 1732103370235,
+    "stop" : 1732103515206,
+    "duration" : 144971
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUpClass",
+    "time" : {
+      "start" : 1732103369913,
+      "stop" : 1732103370203,
+      "duration" : 290
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "tearDownClass",
+    "time" : {
+      "start" : 1732103515208,
+      "stop" : 1732103515213,
+      "duration" : 5
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "runners.GeneralRunner"
+  }, {
+    "name" : "testClass",
+    "value" : "runners.GeneralRunner"
+  }, {
+    "name" : "testMethod",
+    "value" : "runScenario"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Test"
+  }, {
+    "name" : "suite",
+    "value" : "Sandbox_Demo"
+  }, {
+    "name" : "subSuite",
+    "value" : "runners.GeneralRunner"
+  }, {
+    "name" : "host",
+    "value" : "DRADMAN-L5"
+  }, {
+    "name" : "thread",
+    "value" : "29792@DRADMAN-L5.TestNG-PoolService-0(25)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "BROWSER",
+    "value" : "CHROME"
+  }, {
+    "name" : "BROWSER_VERSION",
+    "value" : ""
+  }, {
+    "name" : "WAIT",
+    "value" : "30"
+  }, {
+    "name" : "arg0",
+    "value" : "\"Add Multiple Losses and Create a Claim\""
+  }, {
+    "name" : "arg1",
+    "value" : "\"Optional[Add Losses and Create a Claim]\""
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "470e07a603e3b5ed.json",
+  "parameterValues" : [ "CHROME", "", "30", "\"Add Multiple Losses and Create a Claim\"", "\"Optional[Add Losses and Create a Claim]\"" ]
+}

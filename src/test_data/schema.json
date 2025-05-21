@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["testData"],
+  "properties": {
+    "testData": {
+      "type": "object",
+      "patternProperties": {
+        "^TC_ID_\\d+$": {
+          "type": "object",
+          "required": [
+            "PolicyType",
+            "CustomerType",
+            "FirstName",
+            "LastName",
+            "DOB",
+            "PhoneNum",
+            "Email",
+            "Address",
+            "ZIP",
+            "Producer",
+            "EffectiveDate",
+            "Program",
+            "PolicyCoverageOption",
+            "ResidenceType",
+            "ReplacementCost",
+            "Contents",
+            "LossOfUse",
+            "AllPerilsDeductible",
+            "WindsHailDeductible",
+            "Liability",
+            "MedicalPayments",
+            "YearBuilt",
+            "ConstructionType"
+          ],
+          "properties": {
+            "PolicyType": {
+              "type": "string",
+              "enum": ["Home", "Sandbox"]
+            },
+            "CustomerType": {
+              "type": "string",
+              "enum": ["Individual", "Business"]
+            },
+            "FirstName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "LastName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "DOB": {
+              "type": "string",
+              "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+            },
+            "PhoneNum": {
+              "type": "string",
+              "pattern": "^\\d{3}-\\d{3}-\\d{4}$"
+            },
+            "Email": {
+              "type": "string",
+              "format": "email"
+            },
+            "Address": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ZIP": {
+              "type": "string",
+              "pattern": "^\\d{5}(-\\d{4})?$"
+            },
+            "Producer": {
+              "type": "string",
+              "minLength": 1
+            },
+            "EffectiveDate": {
+              "type": "string",
+              "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+            },
+            "Program": {
+              "type": "string",
+              "minLength": 1
+            },
+            "PolicyCoverageOption": {
+              "type": "string",
+              "enum": ["Gold", "Silver", "Bronze"]
+            },
+            "ResidenceType": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ReplacementCost": {
+              "type": "string",
+              "pattern": "^[\\d,]+$"
+            },
+            "Contents": {
+              "type": "string",
+              "pattern": "^[\\d,]+$"
+            },
+            "LossOfUse": {
+              "type": "string",
+              "pattern": "^[\\d,]+$"
+            },
+            "YearBuilt": {
+              "type": "string",
+              "pattern": "^\\d{4}$"
+            },
+            "RoofType": {
+              "type": "string"
+            },
+            "ConstructionType": {
+              "type": "string"
+            },
+            "AllPerilsDeductible": {
+              "type": "string",
+              "pattern": "^[\\d,]+$"
+            },
+            "WindsHailDeductible": {
+              "type": "string"
+            },
+            "Liability": {
+              "type": "string",
+              "pattern": "^[\\d,]+$"
+            },
+            "MedicalPayments": {
+              "type": "string",
+              "pattern": "^[\\d,]+$"
+            },
+            "NewTransactionEffDate": {
+              "type": "string",
+              "pattern": "^\\d{2}/\\d{2}/\\d{4}$"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}

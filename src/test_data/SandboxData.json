@@ -1,0 +1,18 @@
+{
+  "testData": {
+    "TC_ID_0001": {
+      "PolicyType": "Sandbox",
+      "CustomerName": "Test Customer 1",
+      "CustomerAddress": "789 Test St",
+      "CoverageAmount": "100000",
+      "Deductible": "500"
+    },
+    "TC_ID_0002": {
+      "PolicyType": "Sandbox",
+      "CustomerName": "Test Customer 2",
+      "CustomerAddress": "321 Test Ave",
+      "CoverageAmount": "200000",
+      "Deductible": "1000"
+    }
+  }
+}

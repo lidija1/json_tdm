@@ -1,0 +1,6 @@
+selenium_core\FirefoxDriverManager.class
+excel_core\GetExcelData.class
+selenium_core\DriverManagerFactory.class
+selenium_core\ChromeDriverManager.class
+selenium_core\DriverManager.class
+selenium_core\ChromeHeadlessDriverManager.class

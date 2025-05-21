@@ -1,0 +1,21 @@
+[ {
+  "uid" : "470e07a603e3b5ed",
+  "name" : "Runs Cucumber Scenarios",
+  "time" : {
+    "start" : 1732103370235,
+    "stop" : 1732103515206,
+    "duration" : 144971
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "58cc752d72f213b9",
+  "name" : "Add Multiple Losses and Create a Claim",
+  "time" : {
+    "start" : 1732103370351,
+    "stop" : 1732103515153,
+    "duration" : 144802
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

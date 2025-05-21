@@ -1,0 +1,486 @@
+{
+  "uid" : "58cc752d72f213b9",
+  "name" : "Add Multiple Losses and Create a Claim",
+  "fullName" : "Add Losses and Create a Claim: Add Multiple Losses and Create a Claim",
+  "historyId" : "b6a6cbdfadac1b3ee2a56e5045b1f86e",
+  "time" : {
+    "start" : 1732103370351,
+    "stop" : 1732103515153,
+    "duration" : 144802
+  },
+  "description" : "  As a user, I want to add multiple losses to an incident so that I can create a claim.",
+  "descriptionHtml" : "<p>As a user, I want to add multiple losses to an incident so that I can create a claim.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "steps.Steps.cucumberBefore()",
+    "time" : {
+      "start" : 1732103370352,
+      "stop" : 1732103371826,
+      "duration" : 1474
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "  As a user, I want to add multiple losses to an incident so that I can create a claim.",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Given  the data is loaded \"src/test_data/SandboxData.xlsx\", \"AddLossesAndCreateClaimSheet\", \"TC_ID_0001\"",
+      "time" : {
+        "start" : 1732103371834,
+        "stop" : 1732103372207,
+        "duration" : 373
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Given  the user is logged in as a Claim Adjuster",
+      "time" : {
+        "start" : 1732103372207,
+        "stop" : 1732103383159,
+        "duration" : 10952
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Given  the user navigates to the Incidents tab",
+      "time" : {
+        "start" : 1732103383159,
+        "stop" : 1732103383965,
+        "duration" : 806
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "When  the user filters incidents by entering the insured name in the column filter",
+      "time" : {
+        "start" : 1732103383965,
+        "stop" : 1732103385508,
+        "duration" : 1543
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  selects an incident by clicking the incident number hyperlink",
+      "time" : {
+        "start" : 1732103385508,
+        "stop" : 1732103387790,
+        "duration" : 2282
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks the Add More Losses button",
+      "time" : {
+        "start" : 1732103387790,
+        "stop" : 1732103388578,
+        "duration" : 788
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  selects a claimant from the dropdown",
+      "time" : {
+        "start" : 1732103388578,
+        "stop" : 1732103392025,
+        "duration" : 3447
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  selects a loss type from the dropdown",
+      "time" : {
+        "start" : 1732103392025,
+        "stop" : 1732103395447,
+        "duration" : 3422
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  enters an injury description",
+      "time" : {
+        "start" : 1732103395447,
+        "stop" : 1732103396850,
+        "duration" : 1403
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks Save changes",
+      "time" : {
+        "start" : 1732103396850,
+        "stop" : 1732103397098,
+        "duration" : 248
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks the Other Information tree node",
+      "time" : {
+        "start" : 1732103397098,
+        "stop" : 1732103401316,
+        "duration" : 4218
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  selects No for the fatalities or deaths question",
+      "time" : {
+        "start" : 1732103401316,
+        "stop" : 1732103406395,
+        "duration" : 5079
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  verifies the LOB and coverages",
+      "time" : {
+        "start" : 1732103406398,
+        "stop" : 1732103410666,
+        "duration" : 4268
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks the Select Coverages and Save button",
+      "time" : {
+        "start" : 1732103410667,
+        "stop" : 1732103414909,
+        "duration" : 4242
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks the PD Loss tree node",
+      "time" : {
+        "start" : 1732103414909,
+        "stop" : 1732103419111,
+        "duration" : 4202
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks the Homeowner node",
+      "time" : {
+        "start" : 1732103419111,
+        "stop" : 1732103423386,
+        "duration" : 4275
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks the Select Coverages and Save button",
+      "time" : {
+        "start" : 1732103423387,
+        "stop" : 1732103427651,
+        "duration" : 4264
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks the Create Claim button",
+      "time" : {
+        "start" : 1732103427652,
+        "stop" : 1732103431898,
+        "duration" : 4246
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  selects the Single Claim option",
+      "time" : {
+        "start" : 1732103431898,
+        "stop" : 1732103436146,
+        "duration" : 4248
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "And  clicks the Create Claim button again",
+      "time" : {
+        "start" : 1732103436146,
+        "stop" : 1732103500744,
+        "duration" : 64598
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    }, {
+      "name" : "Then  the claim status should be Open",
+      "time" : {
+        "start" : 1732103500744,
+        "stop" : 1732103502294,
+        "duration" : 1550
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "be06527358479ec7",
+        "name" : "Verify Claim Status Screenshot",
+        "source" : "be06527358479ec7.png",
+        "type" : "image/png",
+        "size" : 221452
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "And  the assignment transaction should be created and processed",
+      "time" : {
+        "start" : 1732103502294,
+        "stop" : 1732103507517,
+        "duration" : 5223
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "63b0df9a71dea7e9",
+        "name" : "Verify Assignment Transaction Status Screenshot",
+        "source" : "63b0df9a71dea7e9.png",
+        "type" : "image/png",
+        "size" : 133416
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "And  the claim registration transaction should be created and processed",
+      "time" : {
+        "start" : 1732103507517,
+        "stop" : 1732103511684,
+        "duration" : 4167
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "ae41014b9b09e8fb",
+        "name" : "Verify Claim Registration Status Screenshot",
+        "source" : "ae41014b9b09e8fb.png",
+        "type" : "image/png",
+        "size" : 133416
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "And  the user logs out",
+      "time" : {
+        "start" : 1732103511684,
+        "stop" : 1732103515150,
+        "duration" : 3466
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 24,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "steps.Steps.cucumberAfter()",
+    "time" : {
+      "start" : 1732103515150,
+      "stop" : 1732103515151,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "Run"
+  }, {
+    "name" : "host",
+    "value" : "DRADMAN-L5"
+  }, {
+    "name" : "thread",
+    "value" : "29792@DRADMAN-L5.TestNG-PoolService-0(25)"
+  }, {
+    "name" : "feature",
+    "value" : "Add Losses and Create a Claim"
+  }, {
+    "name" : "story",
+    "value" : "Add Multiple Losses and Create a Claim"
+  }, {
+    "name" : "suite",
+    "value" : "Add Losses and Create a Claim"
+  }, {
+    "name" : "testClass",
+    "value" : "Add Multiple Losses and Create a Claim"
+  }, {
+    "name" : "framework",
+    "value" : "cucumber4jvm"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "gherkin_uri",
+    "value" : "file:///C:/Users/DraganaRadman/IdeaProjects/SandboxAutomation/src/test/java/features/AddLossesAndCreateClaim.feature"
+  }, {
+    "name" : "package",
+    "value" : "src.test.java.features.AddLossesAndCreateClaim_feature.Add Losses and Create a Claim"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "Run" ]
+  },
+  "source" : "58cc752d72f213b9.json",
+  "parameterValues" : [ ]
+}

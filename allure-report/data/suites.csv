@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Nov 20 06:49:30 EST 2024","Wed Nov 20 06:51:55 EST 2024","144802","","Add Losses and Create a Claim","","Add Multiple Losses and Create a Claim","","Add Multiple Losses and Create a Claim","  As a user, I want to add multiple losses to an incident so that I can create a claim."
+"passed","Wed Nov 20 06:49:30 EST 2024","Wed Nov 20 06:51:55 EST 2024","144971","Test","Sandbox_Demo","runners.GeneralRunner","runners.GeneralRunner","runScenario","Runs Cucumber Scenarios",""

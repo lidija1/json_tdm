@@ -1,0 +1,39 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "DRADMAN-L5",
+    "children" : [ {
+      "name" : "29792@DRADMAN-L5.TestNG-PoolService-0(25)",
+      "children" : [ {
+        "name" : "Runs Cucumber Scenarios",
+        "uid" : "470e07a603e3b5ed",
+        "parentUid" : "194d2e1f981528c1bd71bbf8a280d3c7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1732103370235,
+          "stop" : 1732103515206,
+          "duration" : 144971
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "CHROME", "", "30", "\"Add Multiple Losses and Create a Claim\"", "\"Optional[Add Losses and Create a Claim]\"" ]
+      }, {
+        "name" : "Add Multiple Losses and Create a Claim",
+        "uid" : "58cc752d72f213b9",
+        "parentUid" : "194d2e1f981528c1bd71bbf8a280d3c7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1732103370351,
+          "stop" : 1732103515153,
+          "duration" : 144802
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "194d2e1f981528c1bd71bbf8a280d3c7"
+    } ],
+    "uid" : "349113b7140bd8adad9f338e03390e37"
+  } ]
+}
