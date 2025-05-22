@@ -1,0 +1,12 @@
+{
+  "defaults": {
+    "customer": {
+      "country": "United States",
+      "state": "Massachusetts",
+      "city": "Norton"
+    },
+    "quote": {
+      "submissionType": "New Business"
+    }
+  }
+} 

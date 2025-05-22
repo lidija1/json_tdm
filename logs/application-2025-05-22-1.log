@@ -1,0 +1,275 @@
+2025-05-22 16:23:56.661 [TestNG-PoolService-2] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:23:56.659 [TestNG-PoolService-3] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:23:56.660 [TestNG-PoolService-7] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:23:56.715 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:23:57.381 [TestNG-PoolService-5] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:23:57.391 [TestNG-PoolService-6] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:23:58.975 [TestNG-PoolService-1] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:23:59.729 [TestNG-PoolService-7] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:24:11.527 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:24:14.660 [TestNG-PoolService-3] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:24:17.911 [TestNG-PoolService-8] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:24:54.836 [TestNG-PoolService-9] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:24:56.567 [TestNG-PoolService-4] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:25:00.327 [main] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:25:07.079 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:42:27.699 [TestNG-PoolService-7] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:27.698 [TestNG-PoolService-9] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:27.698 [TestNG-PoolService-2] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:27.696 [TestNG-PoolService-8] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:27.696 [TestNG-PoolService-6] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:27.696 [TestNG-PoolService-1] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:27.698 [TestNG-PoolService-4] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:27.698 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:27.699 [TestNG-PoolService-5] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:42:28.664 [TestNG-PoolService-3] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:43:32.255 [TestNG-PoolService-3] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:33.766 [TestNG-PoolService-7] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:34.147 [TestNG-PoolService-6] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:34.371 [TestNG-PoolService-1] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:34.682 [TestNG-PoolService-4] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:35.016 [TestNG-PoolService-5] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:35.125 [TestNG-PoolService-2] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:35.754 [TestNG-PoolService-9] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:36.074 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:40.225 [TestNG-PoolService-8] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:43:43.739 [main] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 16:44:45.398 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:55:48.170 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 16:55:55.033 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:55:57.401 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 16:56:04.596 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:56:06.527 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 16:56:14.177 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:56:18.104 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:56:20.324 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 16:56:27.285 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 16:56:29.833 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 16:57:42.244 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 16:57:49.281 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:03:00.267 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:03:07.669 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:04:44.243 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:04:55.402 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:06:55.678 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:07:08.225 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:09:53.341 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:10:06.623 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:11:47.831 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:12:03.255 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:25:31.971 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:25:45.802 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:34:09.872 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:34:24.284 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:37:00.032 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:37:15.294 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:38:52.998 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:39:08.640 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:46:45.506 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:48:03.177 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:50:33.538 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:51:28.834 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:53:30.728 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:54:26.687 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 17:57:52.884 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 17:58:51.884 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:01:06.937 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:01:39.054 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:26:28.550 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:27:36.767 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:33:05.770 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:33:18.195 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:33:46.958 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:33:57.102 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:35:15.708 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:36:22.954 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:37:42.803 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:38:50.538 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:39:37.944 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:40:46.123 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:43:44.760 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:45:22.629 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:46:17.139 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:47:26.294 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:48:36.821 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:49:47.186 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 18:53:07.746 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 18:53:49.378 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:04:01.085 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 19:04:45.717 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:09:12.475 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 19:10:53.006 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:12:24.253 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 19:14:03.712 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:15:01.340 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 19:16:41.984 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:24:29.861 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:35:32.119 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:38:32.602 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.60', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7EF09CF45+75717]
+	GetHandleVerifier [0x00007FF7EF09CFA0+75808]
+	(No symbol) [0x00007FF7EEE68F9A]
+	(No symbol) [0x00007FF7EEEA5D55]
+	(No symbol) [0x00007FF7EEEA1ADD]
+	(No symbol) [0x00007FF7EEEF52D8]
+	(No symbol) [0x00007FF7EEEF48B0]
+	(No symbol) [0x00007FF7EEEE7153]
+	(No symbol) [0x00007FF7EEEB0421]
+	(No symbol) [0x00007FF7EEEB11B3]
+	GetHandleVerifier [0x00007FF7EF39D71D+3223453]
+	GetHandleVerifier [0x00007FF7EF397CC2+3200322]
+	GetHandleVerifier [0x00007FF7EF3B5AF3+3322739]
+	GetHandleVerifier [0x00007FF7EF0B6A1A+180890]
+	GetHandleVerifier [0x00007FF7EF0BE11F+211359]
+	GetHandleVerifier [0x00007FF7EF0A5294+109332]
+	GetHandleVerifier [0x00007FF7EF0A5442+109762]
+	GetHandleVerifier [0x00007FF7EF08BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-22 19:38:32.661 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:40:03.100 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.60', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7EF09CF45+75717]
+	GetHandleVerifier [0x00007FF7EF09CFA0+75808]
+	(No symbol) [0x00007FF7EEE68F9A]
+	(No symbol) [0x00007FF7EEEA5D55]
+	(No symbol) [0x00007FF7EEEA1ADD]
+	(No symbol) [0x00007FF7EEEF52D8]
+	(No symbol) [0x00007FF7EEEF48B0]
+	(No symbol) [0x00007FF7EEEE7153]
+	(No symbol) [0x00007FF7EEEB0421]
+	(No symbol) [0x00007FF7EEEB11B3]
+	GetHandleVerifier [0x00007FF7EF39D71D+3223453]
+	GetHandleVerifier [0x00007FF7EF397CC2+3200322]
+	GetHandleVerifier [0x00007FF7EF3B5AF3+3322739]
+	GetHandleVerifier [0x00007FF7EF0B6A1A+180890]
+	GetHandleVerifier [0x00007FF7EF0BE11F+211359]
+	GetHandleVerifier [0x00007FF7EF0A5294+109332]
+	GetHandleVerifier [0x00007FF7EF0A5442+109762]
+	GetHandleVerifier [0x00007FF7EF08BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-22 19:40:03.205 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:41:50.418 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7EF09CF45+75717]
+	GetHandleVerifier [0x00007FF7EF09CFA0+75808]
+	(No symbol) [0x00007FF7EEE68F9A]
+	(No symbol) [0x00007FF7EEEA5D55]
+	(No symbol) [0x00007FF7EEEA1ADD]
+	(No symbol) [0x00007FF7EEEF52D8]
+	(No symbol) [0x00007FF7EEEF48B0]
+	(No symbol) [0x00007FF7EEEE7153]
+	(No symbol) [0x00007FF7EEEB0421]
+	(No symbol) [0x00007FF7EEEB11B3]
+	GetHandleVerifier [0x00007FF7EF39D71D+3223453]
+	GetHandleVerifier [0x00007FF7EF397CC2+3200322]
+	GetHandleVerifier [0x00007FF7EF3B5AF3+3322739]
+	GetHandleVerifier [0x00007FF7EF0B6A1A+180890]
+	GetHandleVerifier [0x00007FF7EF0BE11F+211359]
+	GetHandleVerifier [0x00007FF7EF0A5294+109332]
+	GetHandleVerifier [0x00007FF7EF0A5442+109762]
+	GetHandleVerifier [0x00007FF7EF08BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-22 19:41:50.497 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:43:15.492 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 19:43:28.478 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 19:45:35.377 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 19:50:05.586 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 20:02:29.935 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 20:04:12.623 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 20:04:17.352 [main] ERROR config.EnhancedLogger - Error during browser cleanup: java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:19410
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: RemoteWebDriver
+2025-05-22 20:13:06.353 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 20:14:25.817 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 20:14:30.407 [main] ERROR config.EnhancedLogger - Error during browser cleanup: java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:5992
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: RemoteWebDriver
+2025-05-22 20:23:07.072 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 20:24:32.852 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 20:27:28.502 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 20:29:08.331 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 20:30:20.620 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 20:32:11.655 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 20:32:16.399 [main] ERROR config.EnhancedLogger - Error during browser cleanup: java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:24308
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: RemoteWebDriver
+2025-05-22 20:38:32.334 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 20:43:30.835 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 20:43:37.746 [main] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-22 20:44:28.074 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 20:47:44.269 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 20:48:52.668 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 20:57:38.279 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 21:02:09.621 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 21:02:14.215 [main] ERROR config.EnhancedLogger - Error during browser cleanup: java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:3196
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: RemoteWebDriver
+2025-05-22 21:06:13.728 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 21:06:59.898 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 21:07:01.048 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 21:11:03.097 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 21:16:13.960 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 21:16:14.836 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 21:23:56.169 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 21:24:42.674 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 21:34:48.723 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 21:34:50.980 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 21:40:43.713 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 21:43:40.794 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 21:43:41.662 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 22:43:27.146 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-22 22:43:27.155 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-22 22:43:32.894 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 22:43:44.786 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 22:43:47.167 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 22:49:13.864 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-22 22:49:13.870 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-22 22:49:17.880 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 22:49:38.288 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-22 22:49:38.293 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-22 22:49:42.504 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 22:52:35.990 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 22:52:36.923 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 22:57:28.588 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-22 22:57:28.593 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-22 22:57:32.406 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 23:06:32.086 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 23:06:33.283 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 23:14:33.471 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-22 23:14:33.477 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-22 23:14:37.606 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 23:20:00.979 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 23:20:02.218 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 23:34:49.609 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-22 23:34:49.614 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-22 23:34:53.835 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 23:38:31.391 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 23:38:32.593 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-22 23:56:00.143 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-22 23:56:00.150 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-22 23:56:05.081 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-22 23:59:41.236 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-22 23:59:42.507 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
