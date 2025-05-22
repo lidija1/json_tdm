@@ -3,535 +3,277 @@ package steps;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.testng.Reporter;
-import pages.*;
+import pages.LoginPage;
+import pages.Quotes;
+import pages.home.*;
+import config.ConfigManager;
+import config.DefaultValues;
+import json_core.JsonDataLoader;
+import models.TestData;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.Customer;
+import pages.LandingPage;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.concurrent.TimeUnit;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Steps extends BaseSteps {
 
+    private SearchPage searchPage;
+    private QuoteRegistration quoteRegistrationPage;
     private LandingPage landingPage;
     private LoginPage loginPage;
-    private HomePage homePage;
-    private IncidentReportingPage incidentReportingPage;
-    private AddLossesAndCreateClaimPage addLossesAndCreateClaimPage;
-    private AddLossPage addLossPage;
-    private AddClaimantThirdPartyPage addClaimantThirdPartyPage;
-    private AssignOwnerPage assignOwnerPage;
     private Quotes quotesPage;
-    private Customer customerPage;
-    private PolicyInformation policyInformation;
-    private LocationCoverage locationCoverage;
-    private Rate rate;
+    private PolicyInformation policyInformationPage;
+    private LocationCoverage locationCoveragePage;
+    private Rate rateQuotePage;
+    private Customer customer;
+    private TestData testData;
 
-    final String BROWSER = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("BROWSER");
-    final String BROWSER_VERSION = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("BROWSER_VERSION");
-    final int WAIT = Integer.parseInt(Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("WAIT"));
+    private String browser;
+    private String browserVersion;
+    private int wait;
+
+    private String getBrowserParameter() {
+        return System.getProperty("browser", "CHROME"); // Default to CHROME if not set
+    }
+
+    private String getBrowserVersionParameter() {
+        return System.getProperty("browser.version", ""); // Empty string means use latest version
+    }
+
+    private int getWaitParameter() {
+        String waitParam = System.getProperty("wait");
+        return waitParam != null ? Integer.parseInt(waitParam) : 30; // Default to 30 seconds if not set
+    }
 
     private String excelPath;
     private String tcId;
 
+    private int browserRestartAttempts = 0;
+    private final int MAX_BROWSER_RESTART_ATTEMPTS = 1; // Only try once to restart browser
+
     @Before
     public void cucumberBefore() {
-        baseSetUp(BROWSER, BROWSER_VERSION, WAIT);
+        System.out.println("AUTOMATION_SECRET_KEY value: " + System.getenv("AUTOMATION_SECRET_KEY"));
+        browser = getBrowserParameter();
+        browserVersion = getBrowserVersionParameter();
+        wait = getWaitParameter();
+        baseSetUp(browser, browserVersion, wait);
+        driver.manage().window().maximize();
 
+        searchPage = new SearchPage(driver);
+        quoteRegistrationPage = new QuoteRegistration(driver);
         landingPage = new LandingPage(driver);
         loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver);
-        incidentReportingPage = new IncidentReportingPage(driver);
-        addLossesAndCreateClaimPage = new AddLossesAndCreateClaimPage(driver);
-        addLossPage = new AddLossPage(driver);
-        addClaimantThirdPartyPage = new AddClaimantThirdPartyPage(driver);
-        assignOwnerPage = new AssignOwnerPage(driver);
         quotesPage = new Quotes(driver);
-        customerPage = new Customer(driver);
-        policyInformation = new PolicyInformation(driver);
-        locationCoverage = new LocationCoverage(driver);
-        rate = new Rate(driver);
+        policyInformationPage = new PolicyInformation(driver);
+        locationCoveragePage = new LocationCoverage(driver);
+        rateQuotePage = new Rate(driver);
+        customer = new Customer(driver);
     }
 
     @After
     public void cucumberAfter() {
+        clearTestId();
         baseTearDown();
-    }    @Given("the data is loaded {string}, {string}")
-    public void theDataIsLoaded(String jsonPath, String tcId) throws IOException {
-        this.excelPath = jsonPath;
-        this.tcId = tcId;
-        loadTestData(jsonPath, tcId, "1");
+    }
+
+    @Given("the data is loaded {string}, {string}")
+    public void theDataIsLoaded(String jsonPath, String tcId) {
+        testData = JsonDataLoader.loadTestData(jsonPath, tcId);
+        System.out.println("Loaded test data: " + testData);
     }
 
     // Login
     @Given("the user is logged in with valid credentials")
-    public void theUserIsLoggedIn() throws InterruptedException {
-        driver.get("https://inforcedev.oneshield.com/splash.html");
-        landingPage.loginToEmpPortal();
-        Thread.sleep(6000);
+    public void theUserIsLoggedIn() {
+        driver.get("https://inforcedev.oneshield.com/oneshield");
+//        landingPage.loginToEmpPortal();
         loginPage.performLogin();
     }
 
-    // Scenario - Reporting an Incident and FNOL
-    @Given("the user initiates a new incident report by clicking the New Incident button")
-    public void theUserInitiatesANewIncidentReportByClickingTheNewIncidentButton() throws InterruptedException {
-        Thread.sleep(2000);
-        homePage.clickNewIncident();
-    }
+//    @Then("I should be able to access the system")
+//    public void iShouldBeAbleToAccessTheSystem() {
+//        // Add verification logic here
+//        // For example, check if a specific element is present after login
+//    }
 
-    @When("the user selects a status from the Notifier Is dropdown")
-    public void theUserSelectsAStatusFromTheDropdown() {
-        incidentReportingPage.setNotifierStatus(data.get("Status"));
-    }
+    // Scenario - Home Exit on Policy Information Page
 
-    @And("selects a country")
-    public void selectsACountry() {
-        incidentReportingPage.selectCountry(data.get("Country"));
-    }
+    // Scenario - Home Exit on Policy Information Page
 
-    @And("enters a contact number")
-    public void entersAContactNumber() {
-        incidentReportingPage.enterContactNum(data.get("ContactNum"));
-    }
-
-    @And("enters a value in the Insured Search field")
-    public void entersAValueInTheInsuredSearchField() {
-        incidentReportingPage.enterInsuredSearchValue(data.get("FullName"));
-    }
-
-    @And("selects an insured from the Insured List dropdown")
-    public void selectsAnInsuredFromTheInsuredListDropdown() throws InterruptedException {
-        Thread.sleep(2000);
-        incidentReportingPage.selectInsuredPerson(data.get("FullName"));
-    }
-
-    @And("fills out the incident details, including type, cause, and description")
-    public void fillsOutTheIncidentDetailsIncludingTypeCauseAndDescription() throws InterruptedException {
-        Thread.sleep(3000);
-        incidentReportingPage.selectIncidentType(data.get("IncidentType"));
-        Thread.sleep(2000);
-        incidentReportingPage.selectIncidentCause(data.get("IncidentCause"));
-        Thread.sleep(2000);
-        incidentReportingPage.enterIncidentDescription(data.get("IncidentDescription"));
-    }
-
-    @And("the user chooses the estimated claim value")
-    public void theUserChoosesTheEstimatedClaimValue() throws InterruptedException {
-        Thread.sleep(2000);
-        incidentReportingPage.clickEstClaimValue();
-    }
-
-    @And("enters the incident date, time, and reporting date")
-    public void entersTheIncidentDateTimeAndReportingDate() {
-        incidentReportingPage.enterIncidentDate(data.get("IncidentDate"));
-        incidentReportingPage.enterIncidentTime(data.get("IncidentTime"));
-        incidentReportingPage.enterReportingDate(data.get("ReportingDate"));
-    }
-
-    @And("clicks Get Details")
-    public void clicksGetDetails() {
-        incidentReportingPage.clickGetDetails();
-    }
-
-    @And("clicks Create FNOL")
-    public void clicksCreateFNOL() throws InterruptedException {
-        Thread.sleep(3000);
-        incidentReportingPage.clickCreateFNOL();
-        Thread.sleep(3000);
-        if (incidentReportingPage.getCreateNewIncidentBtn().isDisplayed()) {
-            incidentReportingPage.clickCreateNewIncidentBtn();
-        }
-    }
-
-    @And("selects a claimant from the dropdown")
-    public void selectsAClaimantFromTheDropdown() throws InterruptedException {
-        Thread.sleep(3000);
-        incidentReportingPage.selectClaimant(data.get("Name"));
-    }
-
-    @And("selects a loss type from the dropdown")
-    public void selectsALossTypeFromTheDropdown() throws InterruptedException {
-        Thread.sleep(3000);
-        incidentReportingPage.selectLossType(data.get("LossType"));
-    }
-
-    @And("selects a property from the dropdown")
-    public void selectsAPropertyFromTheDropdown() throws InterruptedException {
-        Thread.sleep(2000);
-        incidentReportingPage.selectProperty(data.get("Property"));
-    }
-
-    @And("sets up an inspection appointment by entering the scheduled date, start time, and end time")
-    public void setsUpAnInspectionAppointmentByEnteringTheScheduledDateStartTimeAndEndTime() throws InterruptedException {
-        Thread.sleep(2000);
-        incidentReportingPage.setupInspectionAppointment();
-        incidentReportingPage.enterScheduledInspectionDate(data.get("InspectionDate"));
-        incidentReportingPage.enterTimeFromValue(data.get("TimeFrom"));
-        incidentReportingPage.enterTimeToValue(data.get("TimeTo"));
-    }
-
-    @And("clicks Save changes")
-    public void clicksSaveChanges() throws InterruptedException {
-        incidentReportingPage.saveChanges();
-        Thread.sleep(2000);
-    }
-
-    @And("verifies LOB and coverages, includes the coverages, and saves them")
-    public void verifiesLOBAndCoveragesIncludesTheCoveragesAndSavesThem() throws InterruptedException {
-        Thread.sleep(5000);
-        incidentReportingPage.verifyLOB();
-        incidentReportingPage.includeCoverages();
-        Thread.sleep(2000);
-        incidentReportingPage.selectCoveragesAndSave();
-    }
-
-    @And("exits the report")
-    public void exitsTheReport() throws InterruptedException {
-        Thread.sleep(3000);
-        incidentReportingPage.exit();
-    }
-
-    @Then("the status of the Incident should be Loss Reported")
-    public void theStatusOfTheIncidentShouldBe() throws IOException {
-        incidentReportingPage.verifyLossReported(data.get("FullName"), data.get("IncidentDate"), data.get("IncidentStatus"));
-    }
-
-    @And("the user logs out")
-    public void theUserLogsOut() throws InterruptedException {
-        Thread.sleep(3000);
-        incidentReportingPage.clickLogout();
-        incidentReportingPage.clickOk();
-    }
-
-
-    // Scenario - Add Multiple Losses and Create a Claim
-    @Given("the user navigates to the Incidents tab")
-    public void theUserNavigatesToTheIncidentsTab() {
-        addLossesAndCreateClaimPage.clickIncidentsTab();
-    }
-
-    @When("the user filters incidents by entering the insured name in the column filter")
-    public void theUserFiltersIncidentsByEnteringTheInsuredNameInTheColumnFilter() {
-        addLossesAndCreateClaimPage.enterInsuredNameFilterText(data.get("FullName"));
-    }
-
-    @And("selects an incident by clicking the incident number hyperlink")
-    public void selectsAnIncidentByClickingTheIncidentNumberHyperlink() throws InterruptedException {
-        Thread.sleep(2000);
-        addLossesAndCreateClaimPage.clickIncidentNumHyperlink();
-    }
-
-    @And("clicks the Add More Losses button")
-    public void clicksTheAddMoreLossesButton() {
-        addLossesAndCreateClaimPage.clickAddMoreLosses();
-    }
-
-    @And("enters an injury description")
-    public void entersAnInjuryDescription() throws InterruptedException {
-        addLossesAndCreateClaimPage.enterInjuryDescription(data.get("InjuryDescription"));
-        Thread.sleep(4000);
-    }
-
-    @And("clicks the Other Information tree node")
-    public void clicksTheOtherInformationTreeNode() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickOtherInformation();
-        Thread.sleep(4000);
-    }
-
-    @And("selects No for the fatalities or deaths question")
-    public void selectsNoForTheFatalitiesOrDeathsQuestion() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickNoFatalitiesOrDeaths();
-        Thread.sleep(2000);
-    }
-
-    @And("verifies the LOB and coverages")
-    public void verifiesTheLOBAndCoverages() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickVerifyLOBAndCoverages();
-        Thread.sleep(4000);
-    }
-
-    @And("clicks the Select Coverages and Save button")
-    public void clicksTheSelectCoveragesAndSaveButton() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickSelectCoveragesAndSave();
-        Thread.sleep(4000);
-    }
-
-    @And("clicks the PD Loss tree node")
-    public void clicksThePDLossTreeNode() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickPDLoss(data.get("FullName"));
-        Thread.sleep(4000);
-    }
-
-    @And("clicks the Homeowner node")
-    public void clicksTheHomeownerNode() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickHomeownerNode();
-        Thread.sleep(4000);
-    }
-
-    @And("clicks the Create Claim button")
-    public void clicksTheCreateClaimButton() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickCreateClaim();
-        Thread.sleep(4000);
-    }
-
-    @And("selects the Single Claim option")
-    public void selectsTheSingleClaimOption() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickSingleClaim();
-        Thread.sleep(4000);
-    }
-
-    @And("clicks the Create Claim button again")
-    public void clicksTheCreateClaimButtonAgain() throws InterruptedException {
-        addLossesAndCreateClaimPage.clickCreateClaim();
-        Thread.sleep(60000);
-        driver.navigate().refresh();
-        Thread.sleep(4000);
-    }
-
-    @Then("the claim status should be Open")
-    public void theClaimStatusShouldBeOpen() throws IOException {
-        addLossesAndCreateClaimPage.verifyClaimStatus();
-    }
-
-    @And("the assignment transaction should be created and processed")
-    public void theAssignmentTransactionShouldBeCreatedAndProcessed() throws IOException, InterruptedException {
-        Thread.sleep(4000);
-        addLossesAndCreateClaimPage.verifyAssignmentTransactionStatus();
-    }
-
-    @And("the claim registration transaction should be created and processed")
-    public void theClaimRegistrationTransactionShouldBeCreatedAndProcessed() throws IOException, InterruptedException {
-        Thread.sleep(4000);
-        addLossesAndCreateClaimPage.verifyClaimRegistrationStatus();
-    }
-
-
-    // Scenario - Add a New Loss to an Existing Claim
-    @Given("the user navigates to the Claims tab")
-    public void theUserNavigatesToTheClaimsTab() throws InterruptedException {
-        addLossPage.clickClaimsTab();
-        Thread.sleep(3000);
-    }
-
-    @When("the user filters claims by entering the claimant name in the column filter")
-    public void theUserFiltersClaimsByEnteringTheClaimantNameInTheColumnFilter() throws InterruptedException {
-        addLossPage.enterClaimantFilterText(data.get("InsuredName"));
-        Thread.sleep(2000);
-    }
-
-    @And("selects a claim by clicking the claim number hyperlink")
-    public void selectsAClaimByClickingTheClaimNumberHyperlink() throws InterruptedException {
-        addLossPage.clickClaimNumHyperlink();
-        Thread.sleep(5000);
-    }
-
-    @And("clicks the Add Claimant Coverage button")
-    public void clicksTheAddClaimantCoverageButton() throws InterruptedException {
-        addLossPage.clickAddClaimantCoverage();
-        Thread.sleep(2000);
-    }
-
-    @And("clicks the Add New Loss button")
-    public void clicksTheAddNewLossButton() throws InterruptedException {
-        addLossPage.clickAddNewLoss();
-        Thread.sleep(4000);
-    }
-
-    @And("chooses a claimant from the dropdown")
-    public void choosesAClaimantFromTheDropdown() throws InterruptedException {
-        addLossPage.selectClaimant(data.get("Name"));
-        Thread.sleep(4000);
-    }
-
-    @And("picks a loss type from the dropdown")
-    public void picksALossTypeFromTheDropdown() throws InterruptedException {
-        addLossPage.selectLossType(data.get("LossType"));
-        Thread.sleep(2000);
-    }
-
-    @And("inputs an injury description")
-    public void inputsAnInjuryDescription() throws InterruptedException {
-        addLossPage.enterInjuryDescription(data.get("InjuryDescription"));
-        Thread.sleep(2000);
-    }
-
-    @And("verifies coverages")
-    public void verifiesCoverages() throws InterruptedException {
-        addLossPage.clickVerifyCoverages();
-        Thread.sleep(2000);
-    }
-
-    @And("processes the claim")
-    public void processesTheClaim() throws InterruptedException {
-        addLossPage.clickProcess();
-        Thread.sleep(2000);
-    }
-
-    @Then("the claim status in the Claim Transaction Summary block should be Processed")
-    public void theClaimStatusInTheClaimTransactionSummaryBlockShouldBeProcessed() throws IOException, InterruptedException {
-        addLossPage.verifyClaimTransactionStatus();
-        Thread.sleep(2000);
-    }
-
-    @And("the user exits")
-    public void theUserExits() throws InterruptedException {
-        addLossPage.exit();
-        Thread.sleep(2000);
-    }
-
-    @Then("the Add Claimant Coverage Transaction should be created and marked as Processed")
-    public void theAddClaimantCoverageTransactionShouldBeCreatedAndMarkedAsProcessed() throws IOException, InterruptedException {
-        addLossPage.verifyAddClaimantCoverageStatus();
-        Thread.sleep(2000);
-    }
-
-
-    // Add Claimant Third Party
-    @And("navigates to the Parties tab")
-    public void navigatesToThePartiesTab() throws InterruptedException {
-        addClaimantThirdPartyPage.clickPartiesTab();
-        Thread.sleep(2000);
-    }
-
-    @And("clicks the Add Party button")
-    public void clicksTheAddPartyButton() throws InterruptedException {
-        addClaimantThirdPartyPage.clickAddParty();
-        Thread.sleep(2000);
-    }
-
-    @And("chooses an option from the Type dropdown")
-    public void choosesAnOptionFromTheTypeDropdown() throws InterruptedException {
-        addClaimantThirdPartyPage.selectType(data.get("Type"));
-        Thread.sleep(2000);
-    }
-
-    @And("chooses an option from the Role dropdown")
-    public void choosesAnOptionFromTheRoleDropdown() throws InterruptedException {
-        addClaimantThirdPartyPage.selectRole(data.get("Role"));
-        Thread.sleep(2000);
-    }
-
-    @And("enters the first name in the Name field")
-    public void entersTheFirstNameInTheNameField() {
-        addClaimantThirdPartyPage.enterFirstName(data.get("FirstName"));
-    }
-
-    @And("enters the last name in the Last Name field")
-    public void entersTheLastNameInTheLastNameField() {
-        addClaimantThirdPartyPage.enterLastName(data.get("LastName"));
-
-    }
-
-    @And("enters the contact number in the Contact Number field under the Additional Details block")
-    public void entersTheContactNumberInTheContactNumberFieldUnderTheAdditionalDetailsBlock() {
-        addClaimantThirdPartyPage.enterContactNum(data.get("ContactNum"));
-    }
-
-    @And("selects an option from the Is Party Injured? dropdown")
-    public void selectsAnOptionFromTheIsPartyInjuredDropdown() throws InterruptedException {
-        addClaimantThirdPartyPage.selectFromIsPartyInjured(data.get("IsPartyInjuredOption"));
-        Thread.sleep(2000);
-    }
-
-    @And("selects a location from the Location dropdown under the Primary Address Details block")
-    public void selectsALocationFromTheLocationDropdownUnderThePrimaryAddressDetailsBlock() throws InterruptedException {
-        addClaimantThirdPartyPage.selectLocation(data.get("Location"));
-        Thread.sleep(2000);
-    }
-
-    @Then("the Additional Insured should be created and displayed in the Party List block on the Claim Party | Details Page")
-    public void theAdditionalInsuredShouldBeCreatedAndDisplayedInThePartyListBlockOnTheClaimPartyDetailsPage() throws InterruptedException, IOException {
-        addClaimantThirdPartyPage.verifyAdditionalInsured(data.get("AdditionalInsuredName"));
-        Thread.sleep(2000);
-    }
-
-
-    // Scenario - Assign an Owner to a Claim Coverage
-
-    @And("clicks the Assignment button")
-    public void clicksTheAssignmentButton() throws InterruptedException {
-        assignOwnerPage.clickAssignmentBtn();
-        Thread.sleep(2000);
-    }
-
-    @And("selects an owner from the Claim Owner dropdown")
-    public void selectsAnOwnerFromTheClaimOwnerDropdown() throws InterruptedException {
-        assignOwnerPage.selectClaimOwner(data.get("ClaimOwner"));
-        Thread.sleep(2000);
-    }
-
-    @And("clicks Process")
-    public void clicksProcess() throws InterruptedException {
-        assignOwnerPage.clickProcessBtn();
-        Thread.sleep(4000);
-    }
-
-    @Then("the Assigned To field in the Claim Transaction Summary block should display the selected owner")
-    public void theAssignedToFieldInTheClaimTransactionSummaryBlockShouldDisplayTheSelectedOwner() throws IOException, InterruptedException {
-        assignOwnerPage.verifyAssignedTo(data.get("ClaimOwner"));
-        Thread.sleep(2000);
-    }
-
-    @And("the Claim Transaction status should be Processed")
-    public void theClaimTransactionStatusShouldBeProcessed() throws IOException, InterruptedException {
-        assignOwnerPage.verifyStatus();
-        Thread.sleep(2000);
-    }
-
-    @Then("the claim owner in the Processing Details Block on Claim Summary | Details Page should be the selected one")
-    public void theClaimOwnerInTheProcessingDetailsBlockOnClaimSummaryDetailsPageShouldBeTheSelectedOne() throws IOException {
-        assignOwnerPage.verifyClaimOwner(data.get("ClaimOwner"));
-    }
-
-    @Then("the claim owner in the Processing Details block on the Claim Summary | Details Page should match the selected owner")
-    public void theClaimOwnerInTheProcessingDetailsBlockOnTheClaimSummaryDetailsPageShouldMatchTheSelectedOwner() throws IOException, InterruptedException {
-        assignOwnerPage.verifyClaimOwner(data.get("ClaimOwner"));
-        Thread.sleep(2000);
-    }
-
-    @And("the Transaction Assignment in the Transactions block should be created and marked as Processed")
-    public void theTransactionAssignmentInTheTransactionsBlockShouldBeCreatedAndMarkedAsProcessed() throws IOException, InterruptedException {
-        assignOwnerPage.verifyTransactionAssignment();
-        Thread.sleep(2000);
-    }
-
-
-    // Scenario - Home Policy Creation
-
-    @When("I create a new quote")
+    @When ("I create a new quote")
     public void iCreateANewQuote() throws InterruptedException {
         quotesPage.createQuote();
     }
 
-    @And("I create a new customer")
-    public void iCreateANewCustomer() throws InterruptedException {
-        customerPage.createNewCustomer(data, -10);
+    private Map<String, String> convertTestDataToMap(TestData data) {
+        Map<String, String> map = new HashMap<>();
+        map.put("CustomerType", data.getCustomerType() != null ? data.getCustomerType() : "");
+        map.put("FirstName", data.getFirstName() != null ? data.getFirstName() : "");
+        map.put("LastName", data.getLastName() != null ? data.getLastName() : "");
+        map.put("DOB", data.getDOB() != null ? data.getDOB() : "");
+        map.put("PhoneNum", data.getPhoneNum() != null ? data.getPhoneNum() : "");
+        map.put("Email", data.getEmail() != null ? data.getEmail() : "");
+        map.put("Country", data.getCountry() != null ? data.getCountry() : DefaultValues.DEFAULT_COUNTRY);
+        map.put("ZIP", data.getZIP() != null ? data.getZIP().trim() : "");
+        map.put("State", data.getState() != null ? data.getState() : DefaultValues.DEFAULT_STATE);
+        map.put("City", data.getCity() != null ? data.getCity() : DefaultValues.DEFAULT_CITY);
+        map.put("Address", data.getAddress() != null ? data.getAddress() : "");
+        map.put("Producer", data.getProducer() != null ? data.getProducer() : "");
+        map.put("Program", data.getProgram() != null ? data.getProgram() : "");
+        map.put("SubmissionType", DefaultValues.DEFAULT_SUBMISSION_TYPE);
+        map.put("BillingMethod", data.getBillingMethod() != null ? data.getBillingMethod() : "");
+        
+        // Calculate yesterday's date in MM/dd/yyyy format
+        LocalDate yesterday = LocalDate.now().minusDays(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        map.put("EffectiveDate", yesterday.format(formatter));
+        
+        System.out.println("Converted map: " + map);
+        return map;
     }
 
-    @And("I provide policy information")
-    public void iProvidePolicyInformation() throws InterruptedException {
-        policyInformation.policyInfo(data);
+    @And("I provide new customer details")
+    public void iCreateANewCustomerL() throws InterruptedException {
+        searchPage.createCustomer(convertTestDataToMap(testData), -5);
+    }
+
+    @And("I provide quote registration details")
+    public void iProvidePolicyInformationL() throws InterruptedException {
+        quoteRegistrationPage.quoteRegistration(convertTestDataToMap(testData));
+    }
+
+    @And("I provide policy details")
+    public void iProvidePolicyDetails() throws InterruptedException, IOException {
+        policyInformationPage.policyInfo(convertTestDataToMap(testData));
     }
 
     @And("I provide location coverage details")
     public void iProvideLocationCoverageDetails() throws InterruptedException {
-        locationCoverage.locationCoverAct(data);
+        try {
+            locationCoveragePage.locationCoverAct(convertTestDataToMap(testData));
+        } catch (WebDriverException e) {
+            if (e.getMessage().contains("Failed to connect") || e.getMessage().contains("Connection refused")) {
+                if (browserRestartAttempts < MAX_BROWSER_RESTART_ATTEMPTS) {
+                    System.out.println("WebDriver connection lost. Attempting to restart browser...");
+                    browserRestartAttempts++;
+                    restartBrowser();
+                    // Try the step again after browser restart
+                    locationCoveragePage.locationCoverAct(convertTestDataToMap(testData));
+                } else {
+                    System.out.println("Maximum browser restart attempts reached. Stopping test.");
+                    throw new RuntimeException("Test terminated after " + browserRestartAttempts + " browser restart attempts", e);
+                }
+            } else {
+                throw e; // Re-throw any other WebDriverException
+            }
+        }
+    }
+
+    /**
+     * Restarts the browser and reinitializes page objects when connection is lost
+     */
+    private void restartBrowser() {
+        try {
+            // Force kill any Chrome processes that might be hanging
+            try {
+                Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
+                Runtime.getRuntime().exec("taskkill /F /IM chrome.exe /T");
+                Thread.sleep(2000); // Give time for processes to be killed
+            } catch (Exception e) {
+                System.out.println("Error killing browser processes: " + e.getMessage());
+            }
+            
+            // Close the current driver if it exists
+            if (driver != null) {
+                try {
+                    driver.quit();
+                } catch (Exception e) {
+                    System.out.println("Error closing existing driver: " + e.getMessage());
+                }
+            }
+            
+            // Create new ChromeDriver with more stable options
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--disable-extensions");
+            options.setExperimentalOption("useAutomationExtension", false);
+            
+            driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); // Reduced from 30
+            
+            // Reinitialize page objects with new driver
+            searchPage = new SearchPage(driver);
+            quoteRegistrationPage = new QuoteRegistration(driver);
+            landingPage = new LandingPage(driver);
+            loginPage = new LoginPage(driver);
+            quotesPage = new Quotes(driver);
+            policyInformationPage = new PolicyInformation(driver);
+            locationCoveragePage = new LocationCoverage(driver);
+            rateQuotePage = new Rate(driver);
+            customer = new Customer(driver);
+            
+            // Login again
+            driver.get("https://inforcedev.oneshield.com/oneshield");
+            loginPage.performLogin();
+            
+            System.out.println("Browser restarted successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to restart browser: " + e.getMessage());
+            throw new RuntimeException("Failed to restart browser after connection loss", e);
+        }
     }
 
     @Then("I rate the quote")
     public void iRateTheQuote() throws InterruptedException {
-        rate.rateQuote();
+        rateQuotePage.rateQuote();
     }
+//    @When ("I create a new quote")
+//    public void iCreateANewQuote() throws InterruptedException {
+//        quotesPage.createQuote();
+//    }
+//
+//    @And("I provide new customer details")
+//    public void iProvideNewCustomerDetails() throws InterruptedException {
+//        customer.createNewCustomer(testData, 0);
+//    }
+//
+//    @And("I provide quote registration details")
+//    public void iProvideQuoteRegistrationDetails() {
+//        // Implementation for quote registration details
+//    }
+//
+//    @And("I provide policy details")
+//    public void iProvidePolicyDetails() {
+//        // Implementation for policy details
+//    }
+//
+//    @And("I provide location coverage details")
+//    public void iProvideLocationCoverageDetails() {
+//        // Implementation for location coverage details
+//    }
+//
+//    @Then("I rate the quote")
+//    public void iRateTheQuote() {
+//        // Implementation for rating the quote
+//    }
 
-    @And("I extract and write the policy cost to Results sheet")
-    public void iExtractAndWritePolicyCostToResultsSheet() throws Exception {
-        rate.extractAndWritePolicyCost(this.excelPath, this.tcId);
-        Thread.sleep(2000);
-    }
 
-    @And("I extract and write the quote ID to Results sheet")
-    public void iExtractAndWriteQuoteIdToResultsSheet() throws Exception {
-        rate.extractAndWriteQuoteId(this.excelPath, this.tcId);
-        Thread.sleep(2000);
-    }
+
+
 }

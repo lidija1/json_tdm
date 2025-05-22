@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import models.TestCase;
+import models.TestData;
+import pages.common.BasePage;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -62,55 +63,55 @@ public class Customer extends BasePage {
     @FindBy(xpath = "//span[text()='Next']")
     public WebElement next2Btn;
 
-    public void createNewCustomer(TestCase testCase, int day) throws InterruptedException {
-        selectCustType(testCase);
-        enterRandomFirstName(testCase);
-        enterRandomLastName(testCase);
-        enterDOB(testCase);
-        enterPhone(testCase);
-        enterEmail(testCase);
-        enterAddress(testCase);
-        enterZIP(testCase);
+    public void createNewCustomer(TestData testData, int day) throws InterruptedException {
+        selectCustType(testData);
+        enterRandomFirstName(testData);
+        enterRandomLastName(testData);
+        enterDOB(testData);
+        enterPhone(testData);
+        enterEmail(testData);
+        enterAddress(testData);
+        enterZIP(testData);
         clickSearch();
         clickNewCustBtn();
         clickNext1();
         clickSkip();
-        enterProducer(testCase);
+        enterProducer(testData);
         setEffDate(day);
-        setProgram(testCase);
+        setProgram(testData);
         clickNext2();
     }
 
-    public void selectCustType(TestCase testCase) {
-        typeText(selectCustType, testCase.getCustomerType(), "Customer Type: " + testCase.getCustomerType());
+    public void selectCustType(TestData testData) {
+        typeText(selectCustType, testData.getCustomerType(), "Customer Type: " + testData.getCustomerType());
     }
 
-    public void enterRandomFirstName(TestCase testCase) {
-        typeText(enterFirstName, testCase.getFirstName(), "First Name: " + testCase.getFirstName());
+    public void enterRandomFirstName(TestData testData) {
+        typeText(enterFirstName, testData.getFirstName(), "First Name: " + testData.getFirstName());
     }
 
-    public void enterRandomLastName(TestCase testCase) {
-        typeText(enterLastName, testCase.getLastName(), "Last Name: " + testCase.getLastName());
+    public void enterRandomLastName(TestData testData) {
+        typeText(enterLastName, testData.getLastName(), "Last Name: " + testData.getLastName());
     }
 
-    public void enterDOB(TestCase testCase) {
-        typeText(enterDOB, testCase.getDOB(), "Date Of Birth: " + testCase.getDOB());
+    public void enterDOB(TestData testData) {
+        typeText(enterDOB, testData.getDOB(), "Date Of Birth: " + testData.getDOB());
     }
 
-    public void enterPhone(TestCase testCase) {
-        typeText(enterPhone, testCase.getPhoneNum(), "Phone Number: " + testCase.getPhoneNum());
+    public void enterPhone(TestData testData) {
+        typeText(enterPhone, testData.getPhoneNum(), "Phone Number: " + testData.getPhoneNum());
     }
 
-    public void enterEmail(TestCase testCase) {
-        typeText(enterEmail, testCase.getEmail(), "Email: " + testCase.getEmail());
+    public void enterEmail(TestData testData) {
+        typeText(enterEmail, testData.getEmail(), "Email: " + testData.getEmail());
     }
 
-    public void enterAddress(TestCase testCase) {
-        typeText(enterAddress, testCase.getAddress(), "Address: " + testCase.getAddress());
+    public void enterAddress(TestData testData) {
+        typeText(enterAddress, testData.getAddress(), "Address: " + testData.getAddress());
     }
 
-    public void enterZIP(TestCase testCase) {
-        typeText(enterZIP, testCase.getZIP(), "ZIP code: " + testCase.getZIP());
+    public void enterZIP(TestData testData) {
+        typeText(enterZIP, testData.getZIP(), "ZIP code: " + testData.getZIP());
     }
 
     public void clickSearch() {
@@ -129,26 +130,24 @@ public class Customer extends BasePage {
         clickElement(skipBtn, "Skip");
     }
 
-    public void enterProducer(TestCase testCase) {
-        clickElement(driver.findElement(By.xpath("//li[text()='" + testCase.getProducer() + "']")), 
-                "Producer: " + testCase.getProducer());
+    public void enterProducer(TestData testData) {
+        clickElement(driver.findElement(By.xpath("//li[text()='" + testData.getProducer() + "']")), 
+                "Producer: " + testData.getProducer());
     }
 
     public void setEffDate(int day) {
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DAY_OF_YEAR, day); // Subtract 10 day to get past date
-        // cal.add(Calendar.MONTH,+2);
+        cal.add(Calendar.DAY_OF_YEAR, day);
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         String pastDate = dateFormat.format(cal.getTime());
         typeText(effDate, pastDate, "Effective Date: " + pastDate);
     }
 
-
-    public void setProgram(TestCase testCase) throws InterruptedException {
+    public void setProgram(TestData testData) throws InterruptedException {
         clickElement(program, "Program dropdown menu.");
         Thread.sleep(1000);
-        clickElement(driver.findElement(By.xpath("//li[text()='" + testCase.getProgram() + "']")), 
-                "Program: " + testCase.getProgram());
+        clickElement(driver.findElement(By.xpath("//li[text()='" + testData.getProgram() + "']")), 
+                "Program: " + testData.getProgram());
     }
 
     public void clickNext2() {

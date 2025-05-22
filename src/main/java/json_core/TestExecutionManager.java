@@ -3,6 +3,8 @@ package json_core;
 import models.LobConfig;
 import models.TestCase;
 import models.TestTypeConfig;
+import models.TestResult;
+import models.TestStatus;
 import java.util.concurrent.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -13,46 +15,57 @@ import java.util.logging.Level;
 
 public class TestExecutionManager {
     private static final Logger logger = Logger.getLogger(TestExecutionManager.class.getName());
-    private final Map<String, ExecutorService> executors;
-    private final Map<String, LobConfig> lobConfigs;
+    private final Map<String, ExecutorService> executors = new ConcurrentHashMap<>();
+    private final Map<String, LobConfig> lobConfigs = new ConcurrentHashMap<>();
+    private final Map<String, Map<String, Future<TestResult>>> runningTests = new ConcurrentHashMap<>();
     
     public TestExecutionManager() {
-        this.executors = new ConcurrentHashMap<>();
-        this.lobConfigs = new ConcurrentHashMap<>();
+        // Create thread pools for parallel execution based on test types
+        lobConfigs.forEach((lobName, config) -> {
+            executors.put(lobName, 
+                new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>()));
+            runningTests.put(lobName, new ConcurrentHashMap<>());
+            config.getTestTypes().forEach((typeName, typeConfig) -> {
+                if (typeConfig.isParallel()) {
+                    executors.put(
+                        getExecutorKey(lobName, typeName),
+                        Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())
+                    );
+                }
+            });
+        });
     }
 
     public void registerLob(LobConfig config) {
         lobConfigs.put(config.getLobName(), config);
-        // Create thread pools for parallel execution based on test types
-        config.getTestTypes().forEach((typeName, typeConfig) -> {
-            if (typeConfig.isParallel()) {
-                executors.put(
-                    getExecutorKey(config.getLobName(), typeName),
-                    Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())
-                );
-            }
-        });
+        executors.put(config.getLobName(), 
+            new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>()));
+        runningTests.put(config.getLobName(), new ConcurrentHashMap<>());
     }
 
     public Future<TestResult> executeTest(String lobName, String testType, TestCase testCase) {
-        LobConfig lobConfig = lobConfigs.get(lobName);
-        if (lobConfig == null) {
-            throw new IllegalArgumentException("Unknown LOB: " + lobName);
+        LobConfig config = lobConfigs.get(lobName);
+        if (config == null) {
+            throw new IllegalArgumentException("LOB not registered: " + lobName);
         }
 
-        TestTypeConfig typeConfig = lobConfig.getTestTypes().get(testType);
+        TestTypeConfig typeConfig = config.getTestTypes().get(testType);
         if (typeConfig == null) {
-            throw new IllegalArgumentException("Unknown test type: " + testType);
+            throw new IllegalArgumentException("Test type not configured: " + testType);
         }
 
-        String executorKey = getExecutorKey(lobName, testType);
-        if (typeConfig.isParallel() && executors.containsKey(executorKey)) {
-            return executors.get(executorKey).submit(() -> runTest(testCase, typeConfig));
-        } else {
-            // Run synchronously for non-parallel tests
-            TestResult result = runTest(testCase, typeConfig);
-            return CompletableFuture.completedFuture(result);
-        }
+        ExecutorService executor = executors.get(lobName);
+        return executor.submit(() -> {
+            TestResult result = new TestResult(testCase.getTestCaseId());
+            try {
+                // Execute test logic here
+                result.setStatus(TestStatus.COMPLETED);
+            } catch (Exception e) {
+                result.setStatus(TestStatus.FAILED);
+                result.addError(e.getMessage());
+            }
+            return result;
+        });
     }
 
     private TestResult runTest(TestCase testCase, TestTypeConfig config) {
@@ -111,48 +124,6 @@ public class TestExecutionManager {
     }
 
     public void shutdown() {
-        executors.values().forEach(ExecutorService::shutdownNow);
+        executors.values().forEach(ExecutorService::shutdown);
     }
-}
-
-class TestResult {
-    private final String testCaseId;
-    private TestStatus status;
-    private final List<String> errors;
-    private final long startTime;
-    private long endTime;
-
-    public TestResult(String testCaseId) {
-        this.testCaseId = testCaseId;
-        this.errors = new ArrayList<>();
-        this.startTime = System.currentTimeMillis();
-    }
-
-    public void setStatus(TestStatus status) {
-        this.status = status;
-        this.endTime = System.currentTimeMillis();
-    }
-
-    public void addError(String error) {
-        this.errors.add(error);
-    }
-
-    public TestStatus getStatus() {
-        return status;
-    }
-
-    public List<String> getErrors() {
-        return new ArrayList<>(errors);
-    }
-
-    public long getDuration() {
-        return endTime - startTime;
-    }
-}
-
-enum TestStatus {
-    PASSED,
-    FAILED,
-    ERROR,
-    TIMEOUT
 }

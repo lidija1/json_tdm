@@ -6,6 +6,8 @@ import org.apache.logging.log4j.Logger;
 import models.LobConfig;
 import models.TestCase;
 import models.TestTypeConfig;
+import models.TestResult;
+import models.TestStatus;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -18,19 +20,25 @@ public class TestOrchestrator {
     private static final int CORE_COUNT = Runtime.getRuntime().availableProcessors();
     private final ExecutorService executorService;
     private final AtomicInteger activeTests = new AtomicInteger(0);
-    private final ConcurrentHashMap<String, TestStatus> testStatuses = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, TestStatusInfo> testStatuses = new ConcurrentHashMap<>();
     private final TestExecutionManager executionManager;
     private final TestResultManager resultManager;
     private final Map<String, Set<String>> completedTests;
     private final Map<String, CompletableFuture<TestResult>> runningTests;
 
-    public static class TestStatus {
+    public enum TestStatusEnum {
+        RUNNING,
+        COMPLETED,
+        FAILED
+    }
+
+    public static class TestStatusInfo {
         public final String name;
         public final long startTime;
         public String status;
         public Throwable error;
 
-        public TestStatus(String name) {
+        public TestStatusInfo(String name) {
             this.name = name;
             this.startTime = System.currentTimeMillis();
             this.status = "RUNNING";
@@ -70,7 +78,7 @@ public class TestOrchestrator {
 
     public <T> CompletableFuture<T> executeTest(String testName, Supplier<T> test) {
         logger.info("Starting test: {}", testName);
-        TestStatus status = new TestStatus(testName);
+        TestStatusInfo status = new TestStatusInfo(testName);
         testStatuses.put(testName, status);
         
         return CompletableFuture.supplyAsync(() -> {
@@ -151,7 +159,7 @@ public class TestOrchestrator {
                         return result;
                         
                     } catch (Exception e) {
-                        logger.log(Level.SEVERE, "Test execution failed: " + testCase.getTestCaseId(), e);
+                        logger.error("Test execution failed: " + testCase.getTestCaseId(), e);
                         TestResult errorResult = new TestResult(testCase.getTestCaseId());
                         errorResult.setStatus(TestStatus.ERROR);
                         errorResult.addError(e.getMessage());
@@ -248,7 +256,7 @@ public class TestOrchestrator {
         return activeTests.get();
     }
 
-    public ConcurrentHashMap<String, TestStatus> getTestStatuses() {
+    public ConcurrentHashMap<String, TestStatusInfo> getTestStatuses() {
         return testStatuses;
     }
 
