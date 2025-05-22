@@ -1,0 +1,31 @@
+{
+  "lobName": "Home",
+  "testTypes": {
+    "api": {
+      "type": "api",
+      "priority": 1,
+      "parallel": true,
+      "retries": 2,
+      "timeoutSeconds": 30
+    },
+    "ui": {
+      "type": "ui",
+      "priority": 2,
+      "parallel": false,
+      "retries": 1,
+      "timeoutSeconds": 120
+    },
+    "integration": {
+      "type": "integration",
+      "priority": 3,
+      "parallel": true,
+      "retries": 2,
+      "timeoutSeconds": 180
+    }
+  },
+  "environments": {
+    "dev": "https://dev.example.com",
+    "qa": "https://qa.example.com",
+    "staging": "https://staging.example.com"
+  }
+}

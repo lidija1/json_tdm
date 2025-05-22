@@ -1,0 +1,67 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2025-05-22T18:43:32.496Z",
+        "before": [
+          {
+            "result": {
+              "duration": 5372000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Steps.cucumberBefore()"
+            }
+          }
+        ],
+        "line": 6,
+        "name": "Successful login with valid credentials",
+        "description": "",
+        "id": "login-functionality;successful-login-with-valid-credentials",
+        "after": [
+          {
+            "result": {
+              "duration": 832000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Steps.cucumberAfter()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 50175000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user is logged in with valid credentials",
+            "match": {
+              "location": "steps.Steps.theUserIsLoggedIn()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 8,
+            "name": "I should be able to access the system",
+            "match": {},
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Login Functionality",
+    "description": "  As a user\n  I want to be able to log in to the application\n  So that I can access the system",
+    "id": "login-functionality",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/login.feature",
+    "tags": []
+  }
+]
