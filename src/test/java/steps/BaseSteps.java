@@ -1,6 +1,7 @@
 package steps;
 
 import config.EnhancedLogger;
+import config.JsonConfigManager;
 import json_core.JsonDataReader;
 import models.TestCase;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,21 @@ public class BaseSteps {
     WebDriver driver;
     DriverManager driverManager;
     Map<String, String> data;
+    
+    // Initialize JsonConfigManager
+    static {
+        try {
+            // Load the JSON configuration
+            Object submissionType = JsonConfigManager.getValue("defaults.quote.submissionType");
+            if (submissionType != null) {
+                EnhancedLogger.info("Loaded default submission type from config.json: " + submissionType);
+            } else {
+                EnhancedLogger.info("Default submission type not found in config.json, using hardcoded value");
+            }
+        } catch (Exception e) {
+            EnhancedLogger.error("Failed to load JSON configuration: " + e.getMessage());
+        }
+    }
 
     /**
      * Set the test ID for logging
@@ -40,6 +56,9 @@ public class BaseSteps {
     }
 
     public void baseSetUp(String browser, String version, int wait) {
+        // Load configuration from JSON if available
+        loadConfigValues();
+        
         // Clean up any existing chrome temp directories
         cleanupChromeTempDirectories();
         
@@ -53,6 +72,19 @@ public class BaseSteps {
         } catch (Exception e) {
             EnhancedLogger.error("Failed to start browser: " + e.getMessage());
             throw e;
+        }
+    }
+    
+    /**
+     * Loads configuration values from JSON file
+     */
+    private void loadConfigValues() {
+        try {
+            // Reload the configuration in case it was updated
+            JsonConfigManager.getConfig();
+            EnhancedLogger.info("Configuration loaded successfully from JSON");
+        } catch (Exception e) {
+            EnhancedLogger.error("Error loading configuration: " + e.getMessage());
         }
     }
 

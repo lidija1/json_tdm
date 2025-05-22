@@ -8,8 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 import pages.common.BasePage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Map;
+import java.util.List;
+import java.io.IOException;
 
 
 public class QuoteRegistration extends BasePage {
@@ -41,96 +44,183 @@ public class QuoteRegistration extends BasePage {
     public WebElement exitButton;
 
 
-   public void quoteRegistration(Map<String, String> data) throws InterruptedException {
-       try {
-           System.out.println("Starting quote registration process");
-           
-           // Add wait for page to load completely
-           Thread.sleep(1500);
-           
-           // Select submission type with proper validation
-           selectSubmissionType(data);
-           System.out.println("Submission type set successfully");
-           Thread.sleep(500);
-           
-           // Select producer with proper validation  
-           selectProducer(data);
-           System.out.println("Producer selected successfully");
-           Thread.sleep(500);
-           
-           // Set effective date with proper validation
-           selectEffDate(data);
-           System.out.println("Effective date set successfully");
-           Thread.sleep(500);
-           
-           // Select program with proper validation (already has robust handling)
-           selectProgram(data);
-           System.out.println("Program selected successfully");
-           
-           // Add a final wait to ensure all form elements are fully processed
-           Thread.sleep(1000);
-           
-           // Click next button (already has robust handling)
-           System.out.println("All quote registration details entered, proceeding to next step");
-           nextButtonClick();
-           
-       } catch (Exception e) {
-           System.out.println("ERROR in quote registration process: " + e.getMessage());
-           try {
-               takeScreenshot("quote_registration_error");
-           } catch (Exception ex) {
-               System.out.println("Failed to take error screenshot: " + ex.getMessage());
-           }
-           throw new RuntimeException("Quote registration failed: " + e.getMessage(), e);
-       }
+   public void quoteRegistration(Map<String, String> data) throws InterruptedException, IOException {
+       System.out.println("Starting quote registration process");
+       
+       // Select Submission Type
+       System.out.println("Submission Type dropdown");
+       selectSubmissionType(data);
+       System.out.println("Submission type set successfully");
+       
+       // Select Producer
+       selectProducer(data);
+       System.out.println("Producer selected successfully");
+       
+       // Select Effective Date
+       selectEffDate(data);
+       System.out.println("Effective date set successfully");
+       
+       // Select Program
+       selectProgram(data);
+       System.out.println("Program selected successfully");
+       
+       System.out.println("All quote registration details entered, proceeding to next step");
+       
+       // Click Next with improved navigation handling
+       clickNextAndWaitForPolicyInfo();
    }
 
-    public void selectSubmissionType(Map<String, String> data) {
+    private void clickNextAndWaitForPolicyInfo() throws InterruptedException, IOException {
         try {
-            System.out.println("Setting Submission Type: " + data.get("SubmissionType"));
-            
-            // First try to click the dropdown to open it
-            clickElement(submissionType, "Submission Type dropdown");
-            Thread.sleep(1000);
-            
-            // Try to select the option from dropdown
-            String submissionTypeValue = data.get("SubmissionType");
+            System.out.println("Waiting for Next button to be clickable...");
             WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.elementToBeClickable(nextButton));
+            System.out.println("Next button is now clickable, attempting to click");
             
-            String[] optionXpaths = {
-                "//li[text()='" + submissionTypeValue + "']",
-                "//li[contains(text(),'" + submissionTypeValue + "')]",
-                "//div[@role='option' and text()='" + submissionTypeValue + "']",
-                "//div[@role='listbox']//li[text()='" + submissionTypeValue + "']"
-            };
+            // Try normal click first
+            clickElement(nextButton, "Next button");
+            System.out.println("Clicked Next button successfully with direct click");
             
-            boolean optionSelected = false;
-            for (String xpath : optionXpaths) {
+            System.out.println("Waiting for page to load after clicking Next button...");
+            Thread.sleep(2000); // Short wait for initial page load
+            
+            // Wait for either Policy Information elements or handle redirect
+            boolean policyPageFound = false;
+            for (int attempt = 0; attempt < 3; attempt++) {
                 try {
-                    WebElement option = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-                    clickElement(option, "Submission Type option: " + submissionTypeValue);
-                    optionSelected = true;
-                    break;
-                } catch (Exception ex) {
-                    System.out.println("Failed to select Submission Type with xpath: " + xpath);
+                    System.out.println("Navigation attempt " + (attempt + 1));
+                    
+                    // Print current URL and page title for debugging
+                    System.out.println("Current URL: " + driver.getCurrentUrl());
+                    System.out.println("Page Title: " + driver.getTitle());
+                    
+                    // Try to find Policy Information page using multiple possible selectors
+                    String[] policyInfoSelectors = {
+                        "//div[contains(text(), 'Policy Information')]",
+                        "//div[contains(@class, 'policy-info')]",
+                        "//div[contains(@class, 'policy')]//h1",
+                        "//div[contains(text(), 'Policy Info')]"
+                    };
+                    
+                    for (String selector : policyInfoSelectors) {
+                        if (driver.findElements(By.xpath(selector)).size() > 0) {
+                            System.out.println("Found Policy Information page using selector: " + selector);
+                            policyPageFound = true;
+                            break;
+                        }
+                    }
+                    
+                    if (policyPageFound) break;
+                    
+                    // If we're not on the Policy Information page, try to navigate there
+                    // First check for the Quotes tab using multiple possible selectors
+                    String[] quotesTabSelectors = {
+                        "//span[text()='QUOTES']",
+                        "//a[contains(text(), 'QUOTES')]",
+                        "//div[contains(text(), 'QUOTES')]",
+                        "//span[contains(text(), 'Quotes')]"
+                    };
+                    
+                    WebElement quotesTab = null;
+                    for (String selector : quotesTabSelectors) {
+                        List<WebElement> elements = driver.findElements(By.xpath(selector));
+                        if (elements.size() > 0) {
+                            quotesTab = elements.get(0);
+                            System.out.println("Found Quotes tab using selector: " + selector);
+                            break;
+                        }
+                    }
+                    
+                    if (quotesTab != null) {
+                        wait.until(ExpectedConditions.elementToBeClickable(quotesTab));
+                        quotesTab.click();
+                        System.out.println("Clicked Quotes tab");
+                        Thread.sleep(1000);
+                        
+                        // Try to find the most recent quote using multiple possible selectors
+                        String[] quoteSelectors = {
+                            "//div[contains(text(), 'QUOTE REGISTRATION FOR')]",
+                            "//div[contains(text(), '" + driver.findElement(By.xpath("//div[contains(text(), 'QUOTE REGISTRATION FOR')]")).getText() + "')]",
+                            "//div[contains(@class, 'quote-registration')]",
+                            "//div[contains(text(), 'New Business')]//ancestor::tr[1]"
+                        };
+                        
+                        WebElement recentQuote = null;
+                        for (String selector : quoteSelectors) {
+                            List<WebElement> elements = driver.findElements(By.xpath(selector));
+                            if (elements.size() > 0) {
+                                recentQuote = elements.get(0);
+                                System.out.println("Found recent quote using selector: " + selector);
+                                break;
+                            }
+                        }
+                        
+                        if (recentQuote != null) {
+                            wait.until(ExpectedConditions.elementToBeClickable(recentQuote));
+                            recentQuote.click();
+                            System.out.println("Clicked recent quote");
+                            Thread.sleep(2000);
+                        } else {
+                            System.out.println("Could not find recent quote element");
+                        }
+                    } else {
+                        System.out.println("Could not find Quotes tab");
+                        // Try to find any clickable navigation elements
+                        List<WebElement> possibleNavElements = driver.findElements(
+                            By.xpath("//a | //span[contains(@class, 'clickable')] | //div[contains(@class, 'clickable')]"));
+                        System.out.println("Found " + possibleNavElements.size() + " possible navigation elements");
+                        for (WebElement elem : possibleNavElements) {
+                            try {
+                                String text = elem.getText();
+                                String className = elem.getAttribute("class");
+                                System.out.println("Navigation element - Text: " + text + ", Class: " + className);
+                            } catch (Exception e) {
+                                // Ignore stale elements
+                            }
+                        }
+                    }
+                    
+                    Thread.sleep(2000); // Wait before next attempt
+                } catch (Exception e) {
+                    System.out.println("Navigation attempt " + (attempt + 1) + " failed: " + e.getMessage());
+                    takeScreenshot("navigation_attempt_" + (attempt + 1));
                 }
             }
             
-            // If dropdown selection failed, try direct text input as fallback
-            if (!optionSelected) {
-                System.out.println("Dropdown selection failed, trying direct text input");
-                typeText(submissionType, submissionTypeValue, "Submission Type: " + submissionTypeValue);
+            if (!policyPageFound) {
+                System.out.println("Failed to reach Policy Information page after 3 attempts");
+                takeScreenshot("navigation_failure");
+                // Take one final screenshot of the current page state
+                takeScreenshot("final_page_state");
+                // Print out the page source for debugging
+                System.out.println("Current page source: " + driver.getPageSource());
+                throw new RuntimeException("Could not navigate to Policy Information page");
             }
             
         } catch (Exception e) {
-            System.out.println("Error setting Submission Type: " + e.getMessage());
-            // Try direct text input as last resort
+            System.out.println("Error during navigation: " + e.getMessage());
+            takeScreenshot("navigation_error");
+            throw e;
+        }
+    }
+
+    public void selectSubmissionType(Map<String, String> data) {
+        try {
+            // Wait for element to be clickable
+            WebDriverWait wait = new WebDriverWait(driver, 5);
+            wait.until(ExpectedConditions.elementToBeClickable(submissionType));
+            
+            // Type the submission type
+            typeText(submissionType, data.get("SubmissionType"), "Submission Type: " + data.get("SubmissionType"));
+        } catch (Exception e) {
+            System.out.println("Error selecting submission type: " + e.getMessage());
+            // Try JavaScript as fallback
             try {
-                String submissionTypeValue = data.get("SubmissionType");
-                typeText(submissionType, submissionTypeValue, "Submission Type (fallback): " + submissionTypeValue);
-            } catch (Exception ex) {
-                System.out.println("Even fallback text input failed: " + ex.getMessage());
-                throw new RuntimeException("Failed to set Submission Type: " + e.getMessage(), e);
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].value = arguments[1];", submissionType, data.get("SubmissionType"));
+                System.out.println("Set Submission Type via JavaScript: " + data.get("SubmissionType"));
+            } catch (Exception je) {
+                throw je;
             }
         }
     }
@@ -209,56 +299,6 @@ public class QuoteRegistration extends BasePage {
         } catch (Exception e) {
             System.out.println("ERROR selecting Program: " + e.getMessage());
             throw new RuntimeException("Failed to select Program: " + e.getMessage(), e);
-        }
-    }
-
-    public void nextButtonClick() {
-        try {
-            // Increase wait time and add explicit logging
-            WebDriverWait wait = new WebDriverWait(driver, 15); // Increased from 10 to 15 seconds
-            System.out.println("Waiting for Next button to be clickable...");
-            
-            // First verify the button is present
-            if (nextButton == null) {
-                System.out.println("ERROR: Next button reference is null");
-                throw new RuntimeException("Next button reference is null");
-            }
-            
-            // Wait with a more specific condition
-            wait.until(ExpectedConditions.and(
-                ExpectedConditions.visibilityOf(nextButton),
-                ExpectedConditions.elementToBeClickable(nextButton)
-            ));
-            
-            System.out.println("Next button is now clickable, attempting to click");
-            
-            // Try a more robust click with JavaScript fallback
-            try {
-                nextButton.click();
-                System.out.println("Clicked Next button successfully with direct click");
-            } catch (Exception e) {
-                System.out.println("Direct click failed, trying JavaScript click: " + e.getMessage());
-                ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].click();", nextButton);
-                System.out.println("Clicked Next button with JavaScript");
-            }
-            
-            // Verify we've moved to the next page by waiting for an element on the next page
-            wait.until(ExpectedConditions.or(
-                ExpectedConditions.urlContains("policyInfo"),
-                ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(), 'Policy Information')]"))
-            ));
-            System.out.println("Successfully navigated after clicking Next button");
-            
-        } catch (Exception e) {
-            System.out.println("CRITICAL ERROR when clicking Next button: " + e.getMessage());
-            // Take screenshot if possible
-            try {
-                takeScreenshot("next_button_error");
-                System.out.println("Screenshot taken for debugging");
-            } catch (Exception ex) {
-                System.out.println("Failed to take error screenshot: " + ex.getMessage());
-            }
-            throw new RuntimeException("Failed to proceed after quote registration: " + e.getMessage(), e);
         }
     }
 

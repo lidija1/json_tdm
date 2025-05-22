@@ -42,12 +42,35 @@ public class TestData {
     @JsonProperty("State")
     private String state;
 
-
     @JsonProperty("City")
     private String city;
 
     @JsonProperty("BillingMethod")
     private String billingMethod;
+
+    @JsonProperty("SubmissionType")
+    private String submissionType;
+
+    @JsonProperty("ResidenceType")
+    private String residenceType;  
+
+    @JsonProperty("ProgramType")
+    private String programType;
+
+    @JsonProperty("Is Child or Day Care run out of the home?")
+    private String childDayCare;
+
+    @JsonProperty("Any underground oil or storage tanks?")
+    private String undergroundOilTanks;
+
+    @JsonProperty("Is the residence rented more than 10 weeks per year?")
+    private String residenceRented;
+
+    @JsonProperty("Is the residence vacant?")
+    private String residenceVacant;
+
+    @JsonProperty("Are there any animals or exotic pets kept on the premises?")
+    private String exoticPets;
 
     // Getters
     public String getCustomerType() { return customerType; }
@@ -62,14 +85,17 @@ public class TestData {
     public String getCountry() { return country; }
     public String getProducer() { return producer; }
     public String getProgram() { return program; }
-
     public String getState() { return state; }
-
     public String getCity() { return city; }
-
-    public String getBillingMethod() {
-        return billingMethod;
-    }
+    public String getBillingMethod() { return billingMethod; }
+    public String getSubmissionType() { return submissionType; }
+    public String getResidenceType() { return residenceType; }
+    public String getProgramType() { return programType; }
+    public String getChildDayCare() { return childDayCare; }
+    public String getUndergroundOilTanks() { return undergroundOilTanks; }
+    public String getResidenceRented() { return residenceRented; }
+    public String getResidenceVacant() { return residenceVacant; }
+    public String getExoticPets() { return exoticPets; }
 
     // Setters
     public void setCustomerType(String customerType) { this.customerType = customerType; }
@@ -84,14 +110,17 @@ public class TestData {
     public void setCountry(String country) { this.country = country; }
     public void setProducer(String producer) { this.producer = producer; }
     public void setProgram(String program) { this.program = program; }
-
     public void setState(String state) { this.state = state; }
-
     public void setCity(String city) { this.city = city; }
-
-    public void setBillingMethod(String billingMethod) {
-        this.billingMethod = billingMethod;
-    }
+    public void setBillingMethod(String billingMethod) { this.billingMethod = billingMethod; }
+    public void setSubmissionType(String submissionType) { this.submissionType = submissionType; }
+    public void setResidenceType(String residenceType) { this.residenceType = residenceType; }
+    public void setProgramType(String programType) { this.programType = programType; }
+    public void setChildDayCare(String childDayCare) { this.childDayCare = childDayCare; }
+    public void setUndergroundOilTanks(String undergroundOilTanks) { this.undergroundOilTanks = undergroundOilTanks; }
+    public void setResidenceRented(String residenceRented) { this.residenceRented = residenceRented; }
+    public void setResidenceVacant(String residenceVacant) { this.residenceVacant = residenceVacant; }
+    public void setExoticPets(String exoticPets) { this.exoticPets = exoticPets; }
 
     @Override
     public String toString() {
@@ -111,6 +140,14 @@ public class TestData {
                 ", state='" + state + '\'' +
                 ", city='" + city + '\'' +
                 ", billingMethod='" + billingMethod + '\'' +
+                ", submissionType='" + submissionType + '\'' +
+                ", residenceType='" + residenceType + '\'' +
+                ", programType='" + programType + '\'' +
+                ", childDayCare='" + childDayCare + '\'' +
+                ", undergroundOilTanks='" + undergroundOilTanks + '\'' +
+                ", residenceRented='" + residenceRented + '\'' +
+                ", residenceVacant='" + residenceVacant + '\'' +
+                ", exoticPets='" + exoticPets + '\'' +
                 '}';
     }
-} 
+}

@@ -51,6 +51,12 @@
             <artifactId>commons-io</artifactId>
             <version>2.8.0</version>
         </dependency>
+        <!-- JSON Simple for JSON parsing -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
         <!-- Allure -->
         <!-- Allure TestNG Integration -->
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->

@@ -26,6 +26,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import config.JsonConfigManager;
 
 public class Steps extends BaseSteps {
 
@@ -133,9 +134,16 @@ public class Steps extends BaseSteps {
         map.put("Address", data.getAddress() != null ? data.getAddress() : "");
         map.put("Producer", data.getProducer() != null ? data.getProducer() : "");
         map.put("Program", data.getProgram() != null ? data.getProgram() : "");
-        map.put("SubmissionType", DefaultValues.DEFAULT_SUBMISSION_TYPE);
+        map.put("SubmissionType", data.getSubmissionType() != null ? data.getSubmissionType() : "");
         map.put("BillingMethod", data.getBillingMethod() != null ? data.getBillingMethod() : "");
-        
+        map.put("ResidenceType", data.getResidenceType() != null ? data.getResidenceType() : "");
+        map.put("ProgramType", data.getProgramType() != null ? data.getProgramType() : "");
+        map.put("Is Child or Day Care run out of the home?", data.getChildDayCare() != null ? data.getChildDayCare() : "");
+        map.put("Any underground oil or storage tanks?", data.getUndergroundOilTanks() != null ? data.getUndergroundOilTanks() : "");
+        map.put("Is the residence rented more than 10 weeks per year?", data.getResidenceRented() != null ? data.getResidenceRented() : "");
+        map.put("Is the residence vacant?", data.getResidenceVacant() != null ? data.getResidenceVacant() : "");
+        map.put("Are there any animals or exotic pets kept on the premises?", data.getExoticPets() != null ? data.getExoticPets() : "");
+
         // Calculate yesterday's date in MM/dd/yyyy format
         LocalDate yesterday = LocalDate.now().minusDays(1);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
@@ -151,7 +159,7 @@ public class Steps extends BaseSteps {
     }
 
     @And("I provide quote registration details")
-    public void iProvidePolicyInformationL() throws InterruptedException {
+    public void iProvidePolicyInformationL() throws InterruptedException, IOException {
         quoteRegistrationPage.quoteRegistration(convertTestDataToMap(testData));
     }
 
@@ -164,7 +172,7 @@ public class Steps extends BaseSteps {
     public void iProvideLocationCoverageDetails() throws InterruptedException {
         try {
             locationCoveragePage.locationCoverAct(convertTestDataToMap(testData));
-        } catch (WebDriverException e) {
+        }  catch(WebDriverException e) {
             if (e.getMessage().contains("Failed to connect") || e.getMessage().contains("Connection refused")) {
                 if (browserRestartAttempts < MAX_BROWSER_RESTART_ATTEMPTS) {
                     System.out.println("WebDriver connection lost. Attempting to restart browser...");

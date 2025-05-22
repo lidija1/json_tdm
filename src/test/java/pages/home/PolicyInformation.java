@@ -135,134 +135,27 @@ public class PolicyInformation extends BasePage {
     public void selectBillingMethod(Map<String, String> data) {
         typeText(billingMethod, data.get("BillingMethod"), "Billing Method: " + data.get("BillingMethod"));
     }
-//    public void selectCustomerType(Map<String, String> data) {
-//        typeText(selectCustomerType, data.get("CustomerType"), "Customer Type" + data.get("CustomerType"));
-//    }
 
-//    public void selectBillingMethod(Map<String, String> data) throws InterruptedException {
-//        int maxRetries = 3;
-//        int retryCount = 0;
-//
-//        while (retryCount < maxRetries) {
+
+    // Helper method to wait for element
+//    private void waitForElementPresent(By locator, int timeoutSeconds) {
+//        long endTime = System.currentTimeMillis() + (timeoutSeconds * 1000L);
+//        while (System.currentTimeMillis() < endTime) {
 //            try {
-//                // Wait for page to be stable
-//                Thread.sleep(2000);
-//
-//                // Try multiple locator strategies
-//                WebElement element = null;
-//                JavascriptExecutor js = (JavascriptExecutor) driver;
-//
-//                // First try to wait for any of these elements to be present
-//                String[] xpaths = {
-//                    "//input[contains(@placeholder, 'Billing Method')]",
-//                    "//input[contains(@id, 'billing')]",
-//                    "//div[contains(text(), 'Billing Method')]//following::input[1]",
-//                    "//label[contains(text(), 'Billing Method')]//following::input[1]"
-//                };
-//
-//                // Try each XPath
-//                for (String xpath : xpaths) {
-//                    try {
-//                        // Wait for element to be both present and visible
-//                        waitForElementPresent(By.xpath(xpath), 10);
-//                        element = driver.findElement(By.xpath(xpath));
-//                        if (element != null && element.isDisplayed()) {
-//                            System.out.println("Found billing method input using XPath: " + xpath);
-//                            break;
-//                        }
-//                    } catch (Exception e) {
-//                        continue;
-//                    }
+//                if (driver.findElement(locator).isDisplayed()) {
+//                    return;
 //                }
-//
-//                if (element == null) {
-//                    // If still not found, try JavaScript approach
-//                    String[] selectors = {
-//                        "input[placeholder*='Billing Method']",
-//                        "input[id*='billing']",
-//                        "input[name*='billing']"
-//                    };
-//
-//                    for (String selector : selectors) {
-//                        try {
-//                            element = (WebElement) js.executeScript(
-//                                "return document.querySelector('" + selector + "')"
-//                            );
-//                            if (element != null && (Boolean)js.executeScript("return arguments[0].offsetParent !== null", element)) {
-//                                System.out.println("Found billing method input using selector: " + selector);
-//                                break;
-//                            }
-//                        } catch (Exception e) {
-//                            continue;
-//                        }
-//                    }
-//                }
-//
-//                if (element != null && element.isDisplayed()) {
-//                    // Scroll element into view
-//                    js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
-//                    Thread.sleep(1000);
-//
-//                    // Clear any existing value
-//                    element.clear();
-//                    Thread.sleep(500);
-//
-//                    // Click the element first to ensure it's in focus
-//                    js.executeScript("arguments[0].click();", element);
-//                    Thread.sleep(500);
-//
-//                    // Type the text
-//                    typeText(element, data.get("BillingMethod"), "Billing Method: " + data.get("BillingMethod"));
-//
-//                    // Verify the value was set
-//                    String actualValue = element.getAttribute("value");
-//                    if (actualValue != null && actualValue.equals(data.get("BillingMethod"))) {
-//                        return; // Success!
-//                    }
-//                }
-//
-//                throw new NoSuchElementException("Could not find or interact with billing method input");
-//
 //            } catch (Exception e) {
-//                System.out.println("Attempt " + (retryCount + 1) + " failed: " + e.getMessage());
-//                retryCount++;
-//
-//                if (retryCount == maxRetries) {
-//                    System.out.println("Error in selectBillingMethod after " + maxRetries + " attempts: " + e.getMessage());
-//                    // Take screenshot for debugging
-//                    try {
-//                        takeScreenshot("billing_method_error_final");
-//                    } catch (Exception ex) {
-//                        System.out.println("Failed to take screenshot: " + ex.getMessage());
-//                    }
-//                    throw e;
-//                }
-//
-//                // Wait before retrying
-//                Thread.sleep(2000);
+//                // Continue waiting
+//            }
+//            try {
+//                Thread.sleep(500);
+//            } catch (InterruptedException ie) {
+//                Thread.currentThread().interrupt();
+//                break;
 //            }
 //        }
 //    }
-
-    // Helper method to wait for element
-    private void waitForElementPresent(By locator, int timeoutSeconds) {
-        long endTime = System.currentTimeMillis() + (timeoutSeconds * 1000L);
-        while (System.currentTimeMillis() < endTime) {
-            try {
-                if (driver.findElement(locator).isDisplayed()) {
-                    return;
-                }
-            } catch (Exception e) {
-                // Continue waiting
-            }
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt();
-                break;
-            }
-        }
-    }
 
     /** public void selectProgramType(Map<String, String> data) {
         clickElement(driver.findElement(By.xpath("//li[text()='" + data.get("ProgramType") + "']")),

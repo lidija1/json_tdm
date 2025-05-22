@@ -24,6 +24,7 @@
       "Is the residence vacant?": "No",
       "Are there any animals or exotic pets kept on the premises?": "No",
       "PolicyCoverageOption": "Gold",
+      "SubmissionType": "New Business",
       "ResidenceType": "Homeowner",
       "ReplacementCost": "1,200,000",
       "Contents": "720,000",

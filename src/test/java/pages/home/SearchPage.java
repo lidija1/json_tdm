@@ -103,7 +103,7 @@ public class SearchPage extends BasePage {
                              "contains(text(), 'matching records found') or " +
                              "contains(text(), 'match found') or " +
                              "contains(text(), 'found in database')]"));
-                
+
                 if (!existingCustomerIndicators.isEmpty()) {
                     for (WebElement indicator : existingCustomerIndicators) {
                         if (indicator.isDisplayed()) {
@@ -113,7 +113,7 @@ public class SearchPage extends BasePage {
                         }
                     }
                 }
-                
+
                 // Also check if there are search results in a table
                 if (!customerAlreadyExists) {
                     List<WebElement> searchResults = driver.findElements(
@@ -128,7 +128,7 @@ public class SearchPage extends BasePage {
             }
             
             // Click the create new customer button
-            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebDriverWait wait = new WebDriverWait(driver, 2);
             wait.until(ExpectedConditions.elementToBeClickable(createNewCustButton));
             createNewCustButton();
             
