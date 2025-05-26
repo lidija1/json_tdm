@@ -23,7 +23,7 @@ public class LocationCoverage extends BasePage {
     public WebElement residenceType;
 
     @FindBy(xpath = "//div[text()='Replacement Cost']/../../../..//input")
-    WebElement replaceCost;
+    public WebElement replaceCost;
 
     @FindBy(xpath = "//div[text()='Windstorm or Hail  Deductible']/../../../..//input/../..//div[2]")
     public WebElement windHailDeduct;
@@ -73,25 +73,11 @@ public class LocationCoverage extends BasePage {
    }
 
    public void selectPolCovOption(Map<String, String> data) {
-       WebDriverWait wait = new WebDriverWait(driver, 2);
-
-       // Click the dropdown to expand options
-       wait.until(ExpectedConditions.elementToBeClickable(polCovOption)).click();
-
-       // Wait for the desired option to be present and click it
-       WebElement option = wait.until(ExpectedConditions.elementToBeClickable(
-               By.xpath("//li[text()='"+data.get("PolicyCoverageOption")+"']")));
-       option.click();
+        clickElement(polCovOption, "Policy Coverage Option");
    }
 
     public void setReplaceCost() {
-        String xpath = "//label[text()='Replacement cost contents?']/preceding-sibling::span/input[@type='checkbox']";
-        WebElement checkbox = driver.findElement(By.xpath(xpath));
-
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
-
+        clickElement(replaceCost,"Replace cost");
     }
     public void setReplaceCostM(Map<String, String> data){
         typeText(replaceCost, data.get("ReplacementCost"),"Replacement Cost: " + data.get("ReplacementCost"));

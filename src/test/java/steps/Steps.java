@@ -158,6 +158,10 @@ public class Steps extends BaseSteps {
         searchPage.createCustomer(convertTestDataToMap(testData), -5);
     }
 
+//    @And("I provide quote registration details")
+//    public void iProvidePolicyInformationL() throws InterruptedException, IOException {
+//        quoteRegistrationPage.quoteRegistration(convertTestDataToMap(testData));
+//    }
     @And("I provide quote registration details")
     public void iProvidePolicyInformationL() throws InterruptedException, IOException {
         quoteRegistrationPage.quoteRegistration(convertTestDataToMap(testData));

@@ -1,18 +1,13 @@
-2025-05-23 00:01:36.727 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
-2025-05-23 00:01:36.739 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
-2025-05-23 00:01:40.670 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
-2025-05-23 00:09:17.279 [main] INFO  config.EnhancedLogger - Closing browser
-2025-05-23 00:09:18.506 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
-2025-05-23 00:11:31.162 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
-2025-05-23 00:11:31.179 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
-2025-05-23 00:11:35.082 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
-2025-05-23 00:12:26.237 [main] INFO  config.EnhancedLogger - Closing browser
-2025-05-23 00:12:27.081 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
-2025-05-23 00:13:14.992 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
-2025-05-23 00:13:14.998 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
-2025-05-23 00:13:18.996 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
-2025-05-23 00:13:35.985 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
-2025-05-23 00:13:35.990 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
-2025-05-23 00:13:39.857 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
-2025-05-23 00:17:45.244 [main] INFO  config.EnhancedLogger - Closing browser
-2025-05-23 00:17:46.620 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-26 15:38:44.545 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Default submission type not found in config.json, using hardcoded value
+2025-05-26 15:38:44.563 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-26 15:38:51.668 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Browser started: CHROME vlatest with implicit wait: 30s
+2025-05-26 15:40:50.758 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Closing browser
+2025-05-26 15:40:51.599 [TestNG-PoolService-0] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-26 15:41:40.514 [main] INFO  config.EnhancedLogger - Default submission type not found in config.json, using hardcoded value
+2025-05-26 15:41:40.520 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-26 15:41:44.324 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-26 15:43:07.000 [main] INFO  config.EnhancedLogger - Default submission type not found in config.json, using hardcoded value
+2025-05-26 15:43:07.007 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-26 15:43:10.813 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-26 15:45:06.849 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-26 15:45:07.772 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes

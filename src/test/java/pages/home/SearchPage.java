@@ -74,8 +74,6 @@ public class SearchPage extends BasePage {
 
 
     public void createCustomer(Map<String, String> data, int day) throws InterruptedException {
-        try {
-            // Fill in customer information without waits
             selectCustomerType(data);
             enterTestFirstName(data);
             enterTestLastName(data);
@@ -87,79 +85,10 @@ public class SearchPage extends BasePage {
             enterTestState(data);
             enterTestCity(data);
             enterTestAddressLine(data);
-            
-            // Search first - this checks if customer already exists
             searchButtonClick();
-            
-            // Reduced wait time from 3000ms to 1000ms
-            Thread.sleep(1000);
-            
-            // Check if the customer already exists by looking for specific elements
-            boolean customerAlreadyExists = false;
-            try {
-                // Look for indicators that customer exists (like a warning message or search results)
-                List<WebElement> existingCustomerIndicators = driver.findElements(
-                    By.xpath("//div[contains(text(), 'Customer already exists') or " +
-                             "contains(text(), 'matching records found') or " +
-                             "contains(text(), 'match found') or " +
-                             "contains(text(), 'found in database')]"));
-
-                if (!existingCustomerIndicators.isEmpty()) {
-                    for (WebElement indicator : existingCustomerIndicators) {
-                        if (indicator.isDisplayed()) {
-                            System.out.println("Customer already exists. Will need to click Create New Customer twice.");
-                            customerAlreadyExists = true;
-                            break;
-                        }
-                    }
-                }
-
-                // Also check if there are search results in a table
-                if (!customerAlreadyExists) {
-                    List<WebElement> searchResults = driver.findElements(
-                        By.xpath("//table//tr[position() > 1] | //div[contains(@class, 'result')] | //div[contains(@class, 'match')]"));
-                    if (searchResults.size() > 0) {
-                        System.out.println("Found " + searchResults.size() + " search results. Will need to click Create New Customer twice.");
-                        customerAlreadyExists = true;
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("Error checking if customer exists: " + e.getMessage());
-            }
-            
-            // Click the create new customer button
-            WebDriverWait wait = new WebDriverWait(driver, 2);
-            wait.until(ExpectedConditions.elementToBeClickable(createNewCustButton));
             createNewCustButton();
-            
-            // If customer already exists, need to click the button again
-            if (customerAlreadyExists) {
-                Thread.sleep(2000);
-                try {
-                    wait.until(ExpectedConditions.elementToBeClickable(createNewCustButton));
-                    createNewCustButton();
-                    System.out.println("Clicked Create New Customer button a second time");
-                } catch (Exception e) {
-                    System.out.println("Error clicking Create New Customer a second time: " + e.getMessage());
-                }
-            }
-            
-            // Wait for next button to be clickable
-            try {
-                wait.until(ExpectedConditions.elementToBeClickable(nextButton));
-                nextButtonClick();
-                
-                // Wait for skip button to be clickable
-                wait.until(ExpectedConditions.elementToBeClickable(skipButton));
-                skipButtonClick();
-            } catch (Exception e) {
-                System.out.println("Failed to proceed with next/skip buttons: " + e.getMessage());
-                throw e;
-            }
-        } catch (Exception e) {
-            System.out.println("Error during customer creation: " + e.getMessage());
-            throw e;
-        }
+            nextButtonClick();
+            skipButtonClick();
     }
 
     public void selectCustomerType(Map<String, String> data) {
@@ -183,7 +112,6 @@ public class SearchPage extends BasePage {
     }
     public void enterTestEmail(Map<String, String> data) {
         typeText(enterEmail, data.get("Email"), "Email: " + data.get("Email"));
-
     }
 
     public void enterTestCountry(Map<String, String> data) {
@@ -211,13 +139,6 @@ public class SearchPage extends BasePage {
     public void nextButtonClick() { clickElement(nextButton,"Next");}
 
     public void skipButtonClick() { clickElement(skipButton,"Skip");}
-
-
-
-   // public void backButtonClick() { clickElement(backButton,"Back");}
-   // public void exitButtonClick() { clickElement(exitButton,"Exit");}
-
-
 
 }
 

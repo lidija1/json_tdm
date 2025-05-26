@@ -59,7 +59,7 @@ public class Rate extends BasePage {
     public WebElement policyCost;
 
     public void rateQuote() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 2);
         
         clickElement(bindInformation, "Bind Information node");
         

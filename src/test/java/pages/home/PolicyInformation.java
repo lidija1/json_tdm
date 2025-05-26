@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.common.BasePage;
 import org.openqa.selenium.JavascriptExecutor;
+
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
@@ -22,9 +24,8 @@ public class PolicyInformation extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-
-    @FindBy(xpath = "//div[text()='Billing Method']/../../../..//input")
-    public WebElement billingMethod;
+//    @FindBy(xpath = "//div[contains(text(), 'Billing Method')]/../../..//input")
+//    public WebElement billingMethod;
 
     @FindBy(xpath = "//div[text()='Program Type']/../../../..//input")
     public WebElement programType;
@@ -69,200 +70,177 @@ public class PolicyInformation extends BasePage {
     public WebElement btnExit;
 
 
-    public void policyInfo(Map<String, String> data) throws InterruptedException, IOException {
-        try {
+    public void policyInfo(Map<String, String> data) throws InterruptedException {
+//            Thread.sleep(500);
             selectBillingMethod(data);
-            
-            // Add a small delay to ensure billing method is processed before continuing
-            Thread.sleep(500);
-            
+            Thread.sleep(5000);
             selectProgramType(data);
-            
-            // Make sure program type is selected before continuing to next fields
-            try {
-                String actualValue = programType.getAttribute("value");
-                if (actualValue == null || !actualValue.equals(data.get("ProgramType"))) {
-                    System.out.println("Program type value not set correctly, trying again");
-                    selectProgramType(data);
-                }
-            } catch (Exception e) {
-                System.out.println("Could not verify program type: " + e.getMessage());
-            }
-            
             selectChildDayCare(data);
             selectOilStorage(data);
             selectResidenceRented(data);
             selectResidenceVacant(data);
             selectExoticPets(data);
             btnSaveChangeClick();
-            
-            // Check if the locationCoverage link is visible and enabled
-            try {
-                WebDriverWait wait = new WebDriverWait(driver, 3);
-                wait.until(ExpectedConditions.elementToBeClickable(locationCoverage));
-                System.out.println("Location coverage link is clickable");
-            } catch (Exception e) {
-                System.out.println("Location coverage link is not clickable: " + e.getMessage());
-                // Take a screenshot to see what's happening
-                takeScreenshot("location_coverage_error");
-            }
-            
-            // Try using JavaScript to click if regular click might be failing
-            try {
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].scrollIntoView(true);", locationCoverage);
-                js.executeScript("arguments[0].click();", locationCoverage);
-                System.out.println("Clicked on Location Coverage link using JavaScript");
-            } catch (Exception e) {
-                System.out.println("Failed to click using JavaScript: " + e.getMessage());
-                // Try normal click as fallback
-                selectLocationCoverage();
-            }
-        } catch (Exception e) {
-            System.out.println("Error in policy info step: " + e.getMessage());
-            e.printStackTrace();
-            takeScreenshot("policy_info_error");
-            // Try to continue anyway by clicking next if possible
-            try {
-                selectLocationCoverage();
-            } catch (Exception ex) {
-                System.out.println("Failed to continue: " + ex.getMessage());
-            }
-        }
     }
+    @FindBy(xpath = "//div[contains(text(), 'Billing Method')]/../../..//input")
+    public WebElement billingMethod;
 
+    @FindBy(xpath = "//div[contains(@class, 'x-boundlist-list-ct')]//li")
+    public List<WebElement> billingMethodOptions;
 
     public void selectBillingMethod(Map<String, String> data) {
-        typeText(billingMethod, data.get("BillingMethod"), "Billing Method: " + data.get("BillingMethod"));
-    }
-
-
-    // Helper method to wait for element
-//    private void waitForElementPresent(By locator, int timeoutSeconds) {
-//        long endTime = System.currentTimeMillis() + (timeoutSeconds * 1000L);
-//        while (System.currentTimeMillis() < endTime) {
-//            try {
-//                if (driver.findElement(locator).isDisplayed()) {
-//                    return;
-//                }
-//            } catch (Exception e) {
-//                // Continue waiting
-//            }
-//            try {
-//                Thread.sleep(500);
-//            } catch (InterruptedException ie) {
-//                Thread.currentThread().interrupt();
-//                break;
-//            }
-//        }
-//    }
-
-    /** public void selectProgramType(Map<String, String> data) {
-        clickElement(driver.findElement(By.xpath("//li[text()='" + data.get("ProgramType") + "']")),
-                "Program type: " + data.get("ProgramType"));
-    }**/
-
-    public void selectProgramType(Map<String, String> data) throws InterruptedException {
         try {
-            // Add explicit wait for program type field to be ready
-            WebDriverWait wait = new WebDriverWait(driver, 5);
-            wait.until(ExpectedConditions.elementToBeClickable(programType));
-            
-            // Scroll element into view and ensure it's visible
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].scrollIntoView(true);", programType);
-            
-            // Type the text
-            typeText(programType, data.get("ProgramType"), "Program Type: " + data.get("ProgramType"));
-        } catch (Exception e) {
-            System.out.println("Error selecting program type: " + e.getMessage());
-            // Try JavaScript input as fallback
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].value = arguments[1];", programType, data.get("ProgramType"));
-            System.out.println("Set Program Type via JavaScript: " + data.get("ProgramType"));
-        }
-    }
+            WebDriverWait wait = new WebDriverWait(driver, 10);
 
-    /**public void selectLocationCoverage(Map<String, String> data) {
-        typeText(locationCoverage, data.get("LocationCoverage"), "locationCoverage" + data.get("LocationCoverage"));
-    }**/
+            // First, ensure the billing method field is clickable
+            wait.until(ExpectedConditions.elementToBeClickable(billingMethod));
 
-    public void selectChildDayCare(Map<String, String> data) {
-        try {
-            WebElement element = driver.findElement(By.xpath("//div[text()='Is Child or Day Care run out of the home?']/../../../..//label[text()='"  + data.get("Is Child or Day Care run out of the home?") + "']/../span"));
-            WebDriverWait wait = new WebDriverWait(driver, 5);
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            clickElement(element, "Is Child or Day Care run out of the home? " + data.get("Is Child or Day Care run out of the home?"));
+            // Click to open dropdown
+            clickElement(billingMethod, "Opening Billing Method dropdown");
+
+            // Wait for dropdown options to be visible
+            wait.until(ExpectedConditions.visibilityOfAllElements(billingMethodOptions));
+
+            // Find and click the matching option
+            String targetBillingMethod = data.get("BillingMethod");
+            boolean found = false;
+
+            for (WebElement option : billingMethodOptions) {
+                if (option.getText().trim().equals(targetBillingMethod)) {
+                    // Wait for the specific option to be clickable
+                    wait.until(ExpectedConditions.elementToBeClickable(option));
+                    clickElement(option, "Selecting Billing Method: " + targetBillingMethod);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                System.out.println("Could not find billing method: " + targetBillingMethod);
+                // Fallback to direct input if option not found
+                typeText(billingMethod, targetBillingMethod, "Billing Method (direct input): " + targetBillingMethod);
+            }
+
+            // Verify selection was made
+            wait.until(ExpectedConditions.attributeContains(billingMethod, "value", targetBillingMethod));
+
         } catch (Exception e) {
-            System.out.println("Error selecting Child Day Care option: " + e.getMessage());
-            // Try using JavaScript click as fallback
+            System.out.println("Error selecting billing method: " + e.getMessage());
             try {
-                WebElement element = driver.findElement(By.xpath("//div[text()='Is Child or Day Care run out of the home?']/../../../..//label[text()='"  + data.get("Is Child or Day Care run out of the home?") + "']/../span"));
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click();", element);
-                System.out.println("Clicked Child Day Care using JavaScript: " + data.get("Is Child or Day Care run out of the home?"));
-            } catch (Exception ex) {
-                System.out.println("Failed JavaScript click for Child Day Care: " + ex.getMessage());
+                // Fallback to direct input
+                billingMethod.clear();
+                typeText(billingMethod, data.get("BillingMethod"), "Billing Method (fallback): " + data.get("BillingMethod"));
+            } catch (Exception e2) {
+                System.out.println("Both dropdown and direct input failed: " + e2.getMessage());
+                throw e2;
             }
         }
     }
+
+
+//    public void selectBillingMethod(Map<String, String> data) {
+////        typeText(billingMethod, data.get("BillingMethod"), "Billing Method: " + data.get("BillingMethod"));
+//        try {
+//            // Click to open the dropdown
+//            clickElement(billingMethod, "Billing Dropdown");
+//
+//            // Wait for and click the exact program option
+//            WebDriverWait wait = new WebDriverWait(driver, 5);
+//            WebElement exactProgram = wait.until(ExpectedConditions.elementToBeClickable(
+//                    By.xpath("//li[text()='" + data.get("BillingMethod") + "']")));
+//            clickElement(exactProgram, "BillingMethod: " + data.get("BillingMethod"));
+//
+//        } catch (Exception e) {
+//            System.out.println("Failed to select BillingMethod using dropdown: " + e.getMessage());
+//            // Fallback to direct input if dropdown fails
+//            typeText(billingMethod, data.get("BillingMethod"), "BillingMethod: " + data.get("BillingMethod"));
+//        }
+//    }
+//@FindBy(xpath = "//input[contains(@class, 'x-form-field') and @type='text']")
+//public WebElement billingMethodInput;
+
+//    public void selectBillingMethod(Map<String, String> data) {
+//        try {
+//            billingMethodInput.click(); // Open the dropdown
+//             // Wait 1 second for the options to appear (adjust as needed)
+//            String optionXpath = String.format("//li[text()='%s']", data.get("BillingMethod"));
+//            WebElement option = driver.findElement(By.xpath(optionXpath));
+//            option.click();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//public void selectBillingMethod(Map<String, String> data) {
+//    try {
+//        // Clear any existing value first
+//        billingMethodInput.clear();
+//
+//        // Wait for the program field to be clickable
+//        WebDriverWait wait = new WebDriverWait(driver, 10);
+//        wait.until(ExpectedConditions.elementToBeClickable(billingMethodInput));
+//
+//        // Click to open the dropdown
+//        clickElement(billingMethodInput, "Billing dropdown");
+//
+//        // Construct a more precise XPath for exact program match
+//        String exactProgramXPath = String.format(
+//                "//li[normalize-space(text())='%s' and not(contains(@class, 'disabled'))]",
+//                data.get("BillingMethod")
+//        );
+//
+//        // Wait for and click the exact program option
+//        WebElement exactProgram = wait.until(ExpectedConditions.elementToBeClickable(
+//                By.xpath(exactProgramXPath)
+//        ));
+//
+//        // Add a small delay before clicking to ensure UI is stable
+//        Thread.sleep(1000);
+//
+//        // Click the exact program
+//        clickElement(exactProgram, "Billing Method: " + data.get("BillingMethod"));
+//
+//        // Verify the selection
+//        wait.until(ExpectedConditions.attributeContains(billingMethodInput, "value", data.get("BillingMethod")));
+//        System.out.println("Successfully selected billing: " + data.get("BillingMethod"));
+//
+//    } catch (Exception e) {
+//        System.out.println("Failed to select billing using dropdown: " + e.getMessage());
+//        // Fallback to direct input if dropdown fails
+//        try {
+//            billingMethodInput.clear();
+//            typeText(billingMethodInput, data.get("BillingMethod"), "BillingMethod: " + data.get("BillingMethod"));
+//            // Wait for the value to be set
+//            WebDriverWait wait = new WebDriverWait(driver, 5);
+//            wait.until(ExpectedConditions.attributeContains(billingMethodInput, "value", data.get("BillingMethod")));
+//        } catch (Exception e2) {
+//            System.out.println("Both dropdown and direct input failed: " + e2.getMessage());
+//            throw e2;
+//        }
+//    }
+//}
+
+    public void selectProgramType(Map<String, String> data) {
+       typeText(programType, data.get("ProgramType"), "Program Type: " + data.get("ProgramType"));
+    }
+
+    public void selectChildDayCare(Map<String, String> data) {
+        clickElement(childDayCareNo, "Child DayCare NO");
+    }
     public void selectOilStorage(Map<String, String> data) {
-        clickElement(driver.findElement(By.xpath("//div[text()='Any underground oil or storage tanks?']/../../../..//label[text()='" + data.get("Any underground oil or storage tanks?") + "']/../span")),
-                "Any underground oil or storage tanks? " + data.get("Any underground oil or storage tanks?"));
+        clickElement(undergroundNo, "Oil Storage NO");
     }
 
     public void selectResidenceRented(Map<String, String> data) {
-        clickElement(driver.findElement(By.xpath("//div[text()='Is the residence rented more than 10 weeks per year?']/../../../..//label[text()='" + data.get("Is the residence rented more than 10 weeks per year?") + "']/../span")),
-                "Is the residence rented more than 10 weeks per year? " + data.get("Is the residence rented more than 10 weeks per year?"));
-
+       clickElement(rentedResidenceNo, "Residence NO");
     }
 
     public void selectResidenceVacant(Map<String, String> data) {
-        clickElement(driver.findElement(By.xpath("//div[text()='Is the residence vacant?']/../../../..//label[text()='" + data.get("Is the residence vacant?") + "']/../span")),
-                "Is the residence vacant? " + data.get("Is the residence vacant?"));
-
+        clickElement(vacantNo, "Residence Vacant NO");
     }
 
     public void selectExoticPets(Map<String, String> data) {
-        clickElement(driver.findElement(By.xpath("//div[text()='Are there any animals or exotic pets kept on the premises?']/../../../..//label[text()='" + data.get("Are there any animals or exotic pets kept on the premises?") + "']/../span")),
-                "Are there any animals or exotic pets kept on the premise? " + data.get("Are there any animals or exotic pets kept on the premises?"));
-
+        clickElement(petsNo, "Pets NO");
     }
-/** public void selectChildDayCareYes(Map<String, String> data) {
-        typeText(childDayCareYes, data.get("Is Child or Day Care run out of the home?"), "childDayCareYes" + data.get("Is Child or Day Care run out of the home?"));
-    }
-
-    public void selectsUndergroundNo(Map<String, String> data) {
-        typeText(undergroundNo, data.get("Any underground oil or storage tanks?"), "undergroundNo" + data.get("Any underground oil or storage tanks"));
-    }
-
- /** public void selectUndergroundYes(Map<String, String> data) {
-        typeText(undergroundYes, data.get("Any underground oil or storage tanks?"), "undergroundYes" + data.get("Any underground oil or storage tanks?"));
-    }
-
-    public void selectRentedResidenceNo(Map<String, String> data) {
-        typeText(rentedResidenceNo, data.get("Is the residence rented more than 10 weeks per year?"), "rentedResidenceNo" + data.get("Is the residence rented more than 10 weeks per year?"));
-    }
-
- /** public void selectRentedResidenceYes(Map<String, String> data) {
-        typeText(rentedResidenceYes, data.get("Is the residence rented more than 10 weeks per year?"), "rentedResidenceYes" + data.get("Is the residence rented more than 10 weeks per year?"));
-    }
-
-    public void selectVacantNo(Map<String, String> data) {
-        typeText(vacantNo, data.get("Is the residence vacant?"), "vacantNo" + data.get("Is the residence vacant?"));
-    }
-
- /**public void selectVacantYes(Map<String, String> data) {
-        typeText(vacantYes, data.get("Is the residence vacant?"), "vacantYes" + data.get("Is the residence vacant?"));
-    }
-
-    public void selectPetsNo(Map<String, String> data) {
-        typeText(petsNo, data.get("Are there any animals or exotic pets kept on the premise?"), "petsNo" + data.get("Are there any animals or exotic pets kept on the premise?"));
-    }
-
- /**public void selectPetsYes(Map<String, String> data) {
-        typeText(petsYes, data.get("Are there any animals or exotic pets kept on the premise?"), "petsYes" + data.get("Are there any animals or exotic pets kept on the premise?"));
-    }**/
 
     public void btnSaveChangeClick() {
         try {
