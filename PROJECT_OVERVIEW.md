@@ -85,8 +85,8 @@ json_tdm_v1.3/
 - Provides data to test classes
 - Methods:
   ```java
-  public static Map<String, String> getTestData(String filePath, String tcId)
-  public static List<TestCase> getAllTestCases(String filePath)
+  public static Map<String, String> getTestData(String filePath, String tcId);
+  public static List<TestCase> getAllTestCases(String filePath);
   ```
 
 ### 2. Result Writing (JsonResultWriter.java)
@@ -95,8 +95,8 @@ json_tdm_v1.3/
 - Stores quote information
 - Methods:
   ```java
-  public static void writeResult(String filePath, String tcId, String key, String value)
-  public static void updateTestStatus(String filePath, String tcId, String status)
+  public static void writeResult(String filePath, String tcId, String key, String value);
+  public static void updateTestStatus(String filePath, String tcId, String status);
   ```
 
 ## Class Dependencies and JSON Usage
