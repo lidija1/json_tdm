@@ -12,8 +12,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 // import json_core.JsonDataReader;
 // import models.TestCase;
 
+/**
+ * Page class representing the rate quote functionality.
+ * Handles all interactions with rate quote form elements and operations
+ * including bind information, premium calculations, and quote processing.
+ */
 public class Rate extends BasePage {
 
+    /**
+     * Constructor for Rate page.
+     * @param driver WebDriver instance to be used for browser interactions
+     */
     public Rate(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -58,53 +67,118 @@ public class Rate extends BasePage {
     @FindBy(xpath = "//div[@osviewid='PAI_88301_OT_2276904_OI_1_BI_210602_CI_6479502']")
     public WebElement policyCost;
 
-    public void rateQuote() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 2);
+    /**
+     * Processes a complete rate quote with retry mechanism.
+     * This method handles the entire rate quote process including bind information,
+     * client status, coverage history, and quote calculation.
+     * 
+     * @throws InterruptedException if the thread sleep is interrupted
+     * @throws Exception if all retry attempts fail or premium cost is not displayed
+     */
+    public void rateQuote() throws InterruptedException, Exception {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        int maxRetries = 3;
+        int retryCount = 0;
         
-        clickElement(bindInformation, "Bind Information node");
-        
-        // Wait for the form to load after clicking bind information
-        wait.until(ExpectedConditions.elementToBeClickable(existingClientNo));
-        clickElement(existingClientNo, "Existing Client: No");
-        
-        clickElement(companyRefusedNo, "Company refused as client: No");
-        clickElement(coverageRefusedNo, "Coverage Refused: No");
-        clickElement(saveChanges, "Save Changes");
-        
-        // Wait for save to complete
-        wait.until(ExpectedConditions.elementToBeClickable(rateQuote));
-        clickElement(rateQuote, "Rate Quote");
-
-        // Wait for premium info to be available
-        wait.until(ExpectedConditions.visibilityOf(totalPremiumCost));
-        readPremiumTotalCost();
-
-        // Wait for request issue to be available
-        wait.until(ExpectedConditions.elementToBeClickable(requestIssue));
-        clickElement(requestIssue, ">>> Request Issue");
-        
-        // Wait for save changes button to appear
-        wait.until(ExpectedConditions.elementToBeClickable(saveChanges2));
-        clickElement(saveChanges2, "Save changes");
-        
-        clickElement(exit, "Exit");
-        clickElement(quotesTab);
+        while (retryCount < maxRetries) {
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(bindInformation));
+                clickElement(bindInformation, "Bind Information node");
+                Thread.sleep(1000);
+                
+                wait.until(ExpectedConditions.elementToBeClickable(existingClientNo));
+                clickElement(existingClientNo, "Existing Client: No");
+                Thread.sleep(500);
+                
+                wait.until(ExpectedConditions.elementToBeClickable(companyRefusedNo));
+                clickElement(companyRefusedNo, "Company refused as client: No");
+                Thread.sleep(500);
+                
+                wait.until(ExpectedConditions.elementToBeClickable(coverageRefusedNo));
+                clickElement(coverageRefusedNo, "Coverage Refused: No");
+                Thread.sleep(500);
+                
+                wait.until(ExpectedConditions.elementToBeClickable(saveChanges));
+                clickElement(saveChanges, "Save Changes");
+                Thread.sleep(1000);
+                
+                wait.until(ExpectedConditions.elementToBeClickable(rateQuote));
+                clickElement(rateQuote, "Rate Quote");
+                Thread.sleep(2000);
+                
+                wait.until(ExpectedConditions.visibilityOf(totalPremiumCost));
+                if (!totalPremiumCost.isDisplayed()) {
+                    throw new Exception("Premium cost not displayed after rate quote");
+                }
+                readPremiumTotalCost();
+                
+                wait.until(ExpectedConditions.elementToBeClickable(requestIssue));
+                clickElement(requestIssue, ">>> Request Issue");
+                Thread.sleep(1000);
+                
+                wait.until(ExpectedConditions.elementToBeClickable(saveChanges2));
+                clickElement(saveChanges2, "Save changes");
+                Thread.sleep(1000);
+                
+                wait.until(ExpectedConditions.elementToBeClickable(exit));
+                clickElement(exit, "Exit");
+                Thread.sleep(1000);
+                
+                wait.until(ExpectedConditions.elementToBeClickable(quotesTab));
+                clickElement(quotesTab, "Quotes Tab");
+                
+                return;
+                
+            } catch (Exception e) {
+                retryCount++;
+                System.out.println("Attempt " + retryCount + " failed: " + e.getMessage());
+                
+                if (retryCount == maxRetries) {
+                    System.out.println("All attempts to complete rate quote process failed");
+                    throw e;
+                }
+                
+                Thread.sleep(2000);
+            }
+        }
     }
 
+    /**
+     * Reads and logs the total premium cost.
+     * Extracts the premium cost from the UI and logs it using the enhanced logger.
+     */
     public void readPremiumTotalCost() {
         String premiumTotalCost = getText(totalPremiumCost);
         EnhancedLogger.info("Extracted Premium Cost: " + premiumTotalCost);
     }
 
+    //no usages
+
+    /**
+     * Navigates to the quotes tab.
+     * @throws InterruptedException if the thread sleep is interrupted
+     */
     public void clickOnQuotes() throws InterruptedException {
         clickElement(quotesTab, "Quotes Tab");
     }
 
+    /**
+     * Reads and logs the quote ID.
+     * Extracts the quote ID from the UI and logs it using the enhanced logger.
+     */
     public void readQuoteId() {
         String quoteNumber = getText(quoteId);
         EnhancedLogger.info("Extracted Quote Id: " + quoteNumber);
     }
 
+    /**
+     * Extracts the policy cost and writes it to the test results.
+     * Formats the cost with a dollar sign if needed and saves it to the JSON result file.
+     * 
+     * @param testDataPath Path to the test data file
+     * @param tcId Test case identifier
+     * @throws Exception if writing to the result file fails
+     */
     public void extractAndWritePolicyCost(String testDataPath, String tcId) throws Exception {
         String cost = getText(policyCost);
         if (!cost.startsWith("$")) {
@@ -114,6 +188,14 @@ public class Rate extends BasePage {
         JsonResultWriter.writeResult(testDataPath, tcId, "Actual_Total_Location_Premium", cost);
     }
 
+    /**
+     * Extracts the quote ID and writes it to the test results.
+     * Saves the quote ID to the JSON result file.
+     * 
+     * @param testDataPath Path to the test data file
+     * @param tcId Test case identifier
+     * @throws Exception if writing to the result file fails
+     */
     public void extractAndWriteQuoteId(String testDataPath, String tcId) throws Exception {
         String quote = getText(quoteId);
         EnhancedLogger.info("Quote ID: " + quote);

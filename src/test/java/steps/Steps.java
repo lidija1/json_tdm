@@ -104,17 +104,8 @@ public class Steps extends BaseSteps {
         loginPage.performLogin();
     }
 
-//    @Then("I should be able to access the system")
-//    public void iShouldBeAbleToAccessTheSystem() {
-//        // Add verification logic here
-//        // For example, check if a specific element is present after login
-//    }
 
-    // Scenario - Home Exit on Policy Information Page
-
-    // Scenario - Home Exit on Policy Information Page
-
-    @When ("I create a new quote")
+    @When("I create a new quote")
     public void iCreateANewQuote() throws InterruptedException {
         quotesPage.createQuote();
     }
@@ -138,6 +129,12 @@ public class Steps extends BaseSteps {
         map.put("BillingMethod", data.getBillingMethod() != null ? data.getBillingMethod() : "");
         map.put("ResidenceType", data.getResidenceType() != null ? data.getResidenceType() : "");
         map.put("ProgramType", data.getProgramType() != null ? data.getProgramType() : "");
+        map.put("PolicyCoverageOption", data.getPolicyCoverageOption() != null ? data.getPolicyCoverageOption() : "Gold");
+        map.put("WindsHailDeductible", data.getWindsHailDeductible() != null ? data.getWindsHailDeductible() : "10%");
+        map.put("YearBuilt", data.getYearBuilt() != null ? data.getYearBuilt() : "2016");
+        map.put("ReplacementCost", "1200000");  // Default value
+        map.put("ConstructionType", "Frame");    // Default value
+        map.put("RoofType", "Other");           // Default value
         map.put("Is Child or Day Care run out of the home?", data.getChildDayCare() != null ? data.getChildDayCare() : "");
         map.put("Any underground oil or storage tanks?", data.getUndergroundOilTanks() != null ? data.getUndergroundOilTanks() : "");
         map.put("Is the residence rented more than 10 weeks per year?", data.getResidenceRented() != null ? data.getResidenceRented() : "");
@@ -148,7 +145,7 @@ public class Steps extends BaseSteps {
         LocalDate yesterday = LocalDate.now().minusDays(1);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         map.put("EffectiveDate", yesterday.format(formatter));
-        
+
         System.out.println("Converted map: " + map);
         return map;
     }
@@ -158,32 +155,28 @@ public class Steps extends BaseSteps {
         searchPage.createCustomer(convertTestDataToMap(testData), -5);
     }
 
-//    @And("I provide quote registration details")
-//    public void iProvidePolicyInformationL() throws InterruptedException, IOException {
-//        quoteRegistrationPage.quoteRegistration(convertTestDataToMap(testData));
-//    }
     @And("I provide quote registration details")
-    public void iProvidePolicyInformationL() throws InterruptedException, IOException {
+    public void iProvidePolicyInformationL() throws InterruptedException, IOException, Exception {
         quoteRegistrationPage.quoteRegistration(convertTestDataToMap(testData));
     }
 
     @And("I provide policy details")
-    public void iProvidePolicyDetails() throws InterruptedException, IOException {
+    public void iProvidePolicyDetails() throws Exception {
         policyInformationPage.policyInfo(convertTestDataToMap(testData));
     }
 
     @And("I provide location coverage details")
-    public void iProvideLocationCoverageDetails() throws InterruptedException {
+    public void iProvideLocationCoverageDetails() throws InterruptedException, Exception {
         try {
-            locationCoveragePage.locationCoverAct(convertTestDataToMap(testData));
-        }  catch(WebDriverException e) {
+            locationCoveragePage.CreateANewLocationCoveragesInformation(convertTestDataToMap(testData));
+        } catch (WebDriverException e) {
             if (e.getMessage().contains("Failed to connect") || e.getMessage().contains("Connection refused")) {
                 if (browserRestartAttempts < MAX_BROWSER_RESTART_ATTEMPTS) {
                     System.out.println("WebDriver connection lost. Attempting to restart browser...");
                     browserRestartAttempts++;
                     restartBrowser();
                     // Try the step again after browser restart
-                    locationCoveragePage.locationCoverAct(convertTestDataToMap(testData));
+                    locationCoveragePage.CreateANewLocationCoveragesInformation(convertTestDataToMap(testData));
                 } else {
                     System.out.println("Maximum browser restart attempts reached. Stopping test.");
                     throw new RuntimeException("Test terminated after " + browserRestartAttempts + " browser restart attempts", e);
@@ -207,7 +200,7 @@ public class Steps extends BaseSteps {
             } catch (Exception e) {
                 System.out.println("Error killing browser processes: " + e.getMessage());
             }
-            
+
             // Close the current driver if it exists
             if (driver != null) {
                 try {
@@ -216,7 +209,7 @@ public class Steps extends BaseSteps {
                     System.out.println("Error closing existing driver: " + e.getMessage());
                 }
             }
-            
+
             // Create new ChromeDriver with more stable options
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
@@ -224,11 +217,11 @@ public class Steps extends BaseSteps {
             options.addArguments("--disable-gpu");
             options.addArguments("--disable-extensions");
             options.setExperimentalOption("useAutomationExtension", false);
-            
+
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); // Reduced from 30
-            
+
             // Reinitialize page objects with new driver
             searchPage = new SearchPage(driver);
             quoteRegistrationPage = new QuoteRegistration(driver);
@@ -239,11 +232,11 @@ public class Steps extends BaseSteps {
             locationCoveragePage = new LocationCoverage(driver);
             rateQuotePage = new Rate(driver);
             customer = new Customer(driver);
-            
+
             // Login again
             driver.get("https://inforcedev.oneshield.com/oneshield");
             loginPage.performLogin();
-            
+
             System.out.println("Browser restarted successfully");
         } catch (Exception e) {
             System.out.println("Failed to restart browser: " + e.getMessage());
@@ -252,40 +245,7 @@ public class Steps extends BaseSteps {
     }
 
     @Then("I rate the quote")
-    public void iRateTheQuote() throws InterruptedException {
+    public void iRateTheQuote() throws InterruptedException, Exception {
         rateQuotePage.rateQuote();
     }
-//    @When ("I create a new quote")
-//    public void iCreateANewQuote() throws InterruptedException {
-//        quotesPage.createQuote();
-//    }
-//
-//    @And("I provide new customer details")
-//    public void iProvideNewCustomerDetails() throws InterruptedException {
-//        customer.createNewCustomer(testData, 0);
-//    }
-//
-//    @And("I provide quote registration details")
-//    public void iProvideQuoteRegistrationDetails() {
-//        // Implementation for quote registration details
-//    }
-//
-//    @And("I provide policy details")
-//    public void iProvidePolicyDetails() {
-//        // Implementation for policy details
-//    }
-//
-//    @And("I provide location coverage details")
-//    public void iProvideLocationCoverageDetails() {
-//        // Implementation for location coverage details
-//    }
-//
-//    @Then("I rate the quote")
-//    public void iRateTheQuote() {
-//        // Implementation for rating the quote
-//    }
-
-
-
-
 }

@@ -57,6 +57,15 @@ public class TestData {
     @JsonProperty("ProgramType")
     private String programType;
 
+    @JsonProperty("Policy Coverage Option")
+    private String policyCoverageOption;
+
+    @JsonProperty("WindsHailDeductible")
+    private String windsHailDeductible;
+
+    @JsonProperty("YearBuilt")
+    private String yearBuilt;
+
     @JsonProperty("Is Child or Day Care run out of the home?")
     private String childDayCare;
 
@@ -91,6 +100,9 @@ public class TestData {
     public String getSubmissionType() { return submissionType; }
     public String getResidenceType() { return residenceType; }
     public String getProgramType() { return programType; }
+    public String getPolicyCoverageOption() { return policyCoverageOption; }
+    public String getWindsHailDeductible() { return windsHailDeductible; }
+    public String getYearBuilt() { return yearBuilt; }
     public String getChildDayCare() { return childDayCare; }
     public String getUndergroundOilTanks() { return undergroundOilTanks; }
     public String getResidenceRented() { return residenceRented; }
@@ -116,6 +128,9 @@ public class TestData {
     public void setSubmissionType(String submissionType) { this.submissionType = submissionType; }
     public void setResidenceType(String residenceType) { this.residenceType = residenceType; }
     public void setProgramType(String programType) { this.programType = programType; }
+    public void setPolicyCoverageOption(String policyCoverageOption) { this.policyCoverageOption = policyCoverageOption; }
+    public void setWindsHailDeductible(String windsHailDeductible) { this.windsHailDeductible = windsHailDeductible; }
+    public void setYearBuilt(String yearBuilt) { this.yearBuilt = yearBuilt; }
     public void setChildDayCare(String childDayCare) { this.childDayCare = childDayCare; }
     public void setUndergroundOilTanks(String undergroundOilTanks) { this.undergroundOilTanks = undergroundOilTanks; }
     public void setResidenceRented(String residenceRented) { this.residenceRented = residenceRented; }
@@ -143,6 +158,9 @@ public class TestData {
                 ", submissionType='" + submissionType + '\'' +
                 ", residenceType='" + residenceType + '\'' +
                 ", programType='" + programType + '\'' +
+                ", policyCoverageOption='" + policyCoverageOption + '\'' +
+                ", windsHailDeductible='" + windsHailDeductible + '\'' +
+                ", yearBuilt='" + yearBuilt + '\'' +
                 ", childDayCare='" + childDayCare + '\'' +
                 ", undergroundOilTanks='" + undergroundOilTanks + '\'' +
                 ", residenceRented='" + residenceRented + '\'' +

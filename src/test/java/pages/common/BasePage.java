@@ -287,4 +287,12 @@ public class BasePage {
         WebDriverWait wdWait = new WebDriverWait(driver, waitTime);
         wdWait.until(ExpectedConditions.visibilityOf(element));
     }
+
+    protected void pause(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
 } 

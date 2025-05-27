@@ -1,0 +1,429 @@
+2025-05-23 00:01:36.727 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 00:01:36.739 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 00:01:40.670 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 00:09:17.279 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 00:09:18.506 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 00:11:31.162 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 00:11:31.179 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 00:11:35.082 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 00:12:26.237 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 00:12:27.081 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 00:13:14.992 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 00:13:14.998 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 00:13:18.996 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 00:13:35.985 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 00:13:35.990 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 00:13:39.857 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 00:17:45.244 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 00:17:46.620 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 13:06:19.284 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 13:06:19.298 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 13:06:25.451 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 13:18:38.903 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 13:18:41.498 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 13:41:59.572 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 13:41:59.579 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 13:42:05.469 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:19:14.632 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:19:14.641 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:19:20.250 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:21:45.182 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 14:21:52.430 [main] ERROR config.EnhancedLogger - Error quitting driver: java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:17467
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: RemoteWebDriver
+2025-05-23 14:21:52.431 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 14:30:20.230 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:30:20.236 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:30:25.282 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:31:38.168 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:31:38.175 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:31:44.209 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:33:31.569 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 14:33:32.676 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 14:41:18.481 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:41:18.486 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:41:23.431 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:43:13.522 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 14:43:14.807 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 14:44:59.890 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:44:59.897 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:45:04.735 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:46:59.353 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 14:47:00.505 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 14:48:14.571 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:48:14.577 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:48:19.328 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:50:12.849 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 14:50:14.045 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 14:55:34.255 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:55:34.260 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:55:38.414 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:57:31.579 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 14:57:32.473 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 14:57:48.748 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:57:48.753 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:57:52.743 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:58:11.309 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:58:11.316 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:58:15.518 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 14:59:14.857 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 14:59:14.863 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 14:59:18.998 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:01:13.207 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:01:13.974 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:03:10.878 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:03:10.892 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:03:16.348 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:05:08.063 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:05:09.064 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:17:26.177 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:17:26.184 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:17:31.647 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:19:31.297 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:19:32.320 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:22:14.796 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:22:14.803 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:22:20.301 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:23:46.341 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:23:46.348 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:23:51.166 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:26:12.866 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:26:12.874 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:26:18.770 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:28:04.603 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:28:04.609 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:28:09.614 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:29:52.482 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:29:52.489 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:29:56.211 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created
+from unknown error: failed to write prefs file
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7BC72CF45+75717]
+	GetHandleVerifier [0x00007FF7BC72CFA0+75808]
+	(No symbol) [0x00007FF7BC4F8F9A]
+	(No symbol) [0x00007FF7BC53AE0A]
+	(No symbol) [0x00007FF7BC53B08A]
+	(No symbol) [0x00007FF7BC534615]
+	(No symbol) [0x00007FF7BC531ADD]
+	(No symbol) [0x00007FF7BC5852D8]
+	(No symbol) [0x00007FF7BC5848B0]
+	(No symbol) [0x00007FF7BC577153]
+	(No symbol) [0x00007FF7BC540421]
+	(No symbol) [0x00007FF7BC5411B3]
+	GetHandleVerifier [0x00007FF7BCA2D71D+3223453]
+	GetHandleVerifier [0x00007FF7BCA27CC2+3200322]
+	GetHandleVerifier [0x00007FF7BCA45AF3+3322739]
+	GetHandleVerifier [0x00007FF7BC746A1A+180890]
+	GetHandleVerifier [0x00007FF7BC74E11F+211359]
+	GetHandleVerifier [0x00007FF7BC735294+109332]
+	GetHandleVerifier [0x00007FF7BC735442+109762]
+	GetHandleVerifier [0x00007FF7BC71BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-23 15:29:56.258 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:29:56.261 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:30:58.391 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:30:58.398 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:31:03.323 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:38:35.782 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:38:38.087 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:38:46.453 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:38:46.459 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:38:51.564 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:42:45.733 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:42:47.099 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:43:05.212 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:43:05.223 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:43:10.120 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:45:15.098 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:45:15.104 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:45:19.952 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:46:58.559 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:46:58.564 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:47:02.087 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created
+from unknown error: failed to write prefs file
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7BC72CF45+75717]
+	GetHandleVerifier [0x00007FF7BC72CFA0+75808]
+	(No symbol) [0x00007FF7BC4F8F9A]
+	(No symbol) [0x00007FF7BC53AE0A]
+	(No symbol) [0x00007FF7BC53B08A]
+	(No symbol) [0x00007FF7BC534615]
+	(No symbol) [0x00007FF7BC531ADD]
+	(No symbol) [0x00007FF7BC5852D8]
+	(No symbol) [0x00007FF7BC5848B0]
+	(No symbol) [0x00007FF7BC577153]
+	(No symbol) [0x00007FF7BC540421]
+	(No symbol) [0x00007FF7BC5411B3]
+	GetHandleVerifier [0x00007FF7BCA2D71D+3223453]
+	GetHandleVerifier [0x00007FF7BCA27CC2+3200322]
+	GetHandleVerifier [0x00007FF7BCA45AF3+3322739]
+	GetHandleVerifier [0x00007FF7BC746A1A+180890]
+	GetHandleVerifier [0x00007FF7BC74E11F+211359]
+	GetHandleVerifier [0x00007FF7BC735294+109332]
+	GetHandleVerifier [0x00007FF7BC735442+109762]
+	GetHandleVerifier [0x00007FF7BC71BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-23 15:47:02.133 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:47:02.133 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:47:27.257 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:47:27.262 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:48:03.219 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7BC72CF45+75717]
+	GetHandleVerifier [0x00007FF7BC72CFA0+75808]
+	(No symbol) [0x00007FF7BC4F8F9A]
+	(No symbol) [0x00007FF7BC535B02]
+	(No symbol) [0x00007FF7BC531ADD]
+	(No symbol) [0x00007FF7BC5852D8]
+	(No symbol) [0x00007FF7BC5848B0]
+	(No symbol) [0x00007FF7BC577153]
+	(No symbol) [0x00007FF7BC540421]
+	(No symbol) [0x00007FF7BC5411B3]
+	GetHandleVerifier [0x00007FF7BCA2D71D+3223453]
+	GetHandleVerifier [0x00007FF7BCA27CC2+3200322]
+	GetHandleVerifier [0x00007FF7BCA45AF3+3322739]
+	GetHandleVerifier [0x00007FF7BC746A1A+180890]
+	GetHandleVerifier [0x00007FF7BC74E11F+211359]
+	GetHandleVerifier [0x00007FF7BC735294+109332]
+	GetHandleVerifier [0x00007FF7BC735442+109762]
+	GetHandleVerifier [0x00007FF7BC71BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-23 15:48:03.269 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:48:03.269 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:48:25.477 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:48:25.483 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:48:53.272 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '10.5.0.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7BC72CF45+75717]
+	GetHandleVerifier [0x00007FF7BC72CFA0+75808]
+	(No symbol) [0x00007FF7BC4F8F9A]
+	(No symbol) [0x00007FF7BC535B02]
+	(No symbol) [0x00007FF7BC531ADD]
+	(No symbol) [0x00007FF7BC5852D8]
+	(No symbol) [0x00007FF7BC5848B0]
+	(No symbol) [0x00007FF7BC577153]
+	(No symbol) [0x00007FF7BC540421]
+	(No symbol) [0x00007FF7BC5411B3]
+	GetHandleVerifier [0x00007FF7BCA2D71D+3223453]
+	GetHandleVerifier [0x00007FF7BCA27CC2+3200322]
+	GetHandleVerifier [0x00007FF7BCA45AF3+3322739]
+	GetHandleVerifier [0x00007FF7BC746A1A+180890]
+	GetHandleVerifier [0x00007FF7BC74E11F+211359]
+	GetHandleVerifier [0x00007FF7BC735294+109332]
+	GetHandleVerifier [0x00007FF7BC735442+109762]
+	GetHandleVerifier [0x00007FF7BC71BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-23 15:48:53.304 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:48:53.304 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:50:21.534 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:50:21.540 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:50:26.544 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:52:26.221 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:52:26.227 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:53:13.087 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.16', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7BC72CF45+75717]
+	GetHandleVerifier [0x00007FF7BC72CFA0+75808]
+	(No symbol) [0x00007FF7BC4F8F9A]
+	(No symbol) [0x00007FF7BC535B02]
+	(No symbol) [0x00007FF7BC531ADD]
+	(No symbol) [0x00007FF7BC5852D8]
+	(No symbol) [0x00007FF7BC5848B0]
+	(No symbol) [0x00007FF7BC577153]
+	(No symbol) [0x00007FF7BC540421]
+	(No symbol) [0x00007FF7BC5411B3]
+	GetHandleVerifier [0x00007FF7BCA2D71D+3223453]
+	GetHandleVerifier [0x00007FF7BCA27CC2+3200322]
+	GetHandleVerifier [0x00007FF7BCA45AF3+3322739]
+	GetHandleVerifier [0x00007FF7BC746A1A+180890]
+	GetHandleVerifier [0x00007FF7BC74E11F+211359]
+	GetHandleVerifier [0x00007FF7BC735294+109332]
+	GetHandleVerifier [0x00007FF7BC735442+109762]
+	GetHandleVerifier [0x00007FF7BC71BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-23 15:53:13.234 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:53:13.234 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:53:48.482 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:53:48.489 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:53:53.425 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:57:49.429 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 15:57:50.961 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 15:59:08.715 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 15:59:08.721 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 15:59:13.437 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 15:59:59.869 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:00:00.926 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:00:40.017 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:00:40.024 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:00:44.914 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:01:30.113 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:01:31.306 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:02:01.528 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:02:01.534 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:02:06.241 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:02:25.447 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:02:25.453 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:02:30.245 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:03:15.164 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:03:15.169 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:03:19.878 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:04:07.854 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:04:07.867 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:04:11.521 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:04:11.522 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:04:33.474 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:04:33.480 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:04:38.222 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:05:24.212 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:05:25.047 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:08:16.888 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:08:16.900 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:08:23.311 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:09:11.110 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:09:11.833 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:10:20.901 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:10:20.907 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:10:25.835 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:14:17.572 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:14:18.781 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:15:54.063 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:15:54.070 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:15:59.008 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:17:12.652 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:17:12.659 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:17:17.731 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:18:44.638 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:18:44.643 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:18:48.426 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created
+from unknown error: failed to write prefs file
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.16', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7BC72CF45+75717]
+	GetHandleVerifier [0x00007FF7BC72CFA0+75808]
+	(No symbol) [0x00007FF7BC4F8F9A]
+	(No symbol) [0x00007FF7BC53AE0A]
+	(No symbol) [0x00007FF7BC53B08A]
+	(No symbol) [0x00007FF7BC534615]
+	(No symbol) [0x00007FF7BC531ADD]
+	(No symbol) [0x00007FF7BC5852D8]
+	(No symbol) [0x00007FF7BC5848B0]
+	(No symbol) [0x00007FF7BC577153]
+	(No symbol) [0x00007FF7BC540421]
+	(No symbol) [0x00007FF7BC5411B3]
+	GetHandleVerifier [0x00007FF7BCA2D71D+3223453]
+	GetHandleVerifier [0x00007FF7BCA27CC2+3200322]
+	GetHandleVerifier [0x00007FF7BCA45AF3+3322739]
+	GetHandleVerifier [0x00007FF7BC746A1A+180890]
+	GetHandleVerifier [0x00007FF7BC74E11F+211359]
+	GetHandleVerifier [0x00007FF7BC735294+109332]
+	GetHandleVerifier [0x00007FF7BC735442+109762]
+	GetHandleVerifier [0x00007FF7BC71BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-23 16:18:48.473 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:18:48.474 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:19:09.172 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:19:09.179 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:19:14.091 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:21:30.349 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:21:31.135 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:24:03.242 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:24:03.250 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:24:09.059 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:26:34.435 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:26:35.364 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:46:37.396 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:46:37.402 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:46:42.177 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 16:48:41.482 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 16:48:42.412 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 16:53:03.327 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 16:53:03.332 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 16:53:08.266 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 17:00:01.684 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 17:00:01.691 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 17:00:06.804 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 17:02:30.889 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 17:02:30.907 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 17:02:34.699 [main] ERROR config.EnhancedLogger - Failed to start browser: session not created
+from unknown error: failed to write prefs file
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LIDIJA', ip: '172.35.1.16', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_202'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: 	GetHandleVerifier [0x00007FF7BC72CF45+75717]
+	GetHandleVerifier [0x00007FF7BC72CFA0+75808]
+	(No symbol) [0x00007FF7BC4F8F9A]
+	(No symbol) [0x00007FF7BC53AE0A]
+	(No symbol) [0x00007FF7BC53B08A]
+	(No symbol) [0x00007FF7BC534615]
+	(No symbol) [0x00007FF7BC531ADD]
+	(No symbol) [0x00007FF7BC5852D8]
+	(No symbol) [0x00007FF7BC5848B0]
+	(No symbol) [0x00007FF7BC577153]
+	(No symbol) [0x00007FF7BC540421]
+	(No symbol) [0x00007FF7BC5411B3]
+	GetHandleVerifier [0x00007FF7BCA2D71D+3223453]
+	GetHandleVerifier [0x00007FF7BCA27CC2+3200322]
+	GetHandleVerifier [0x00007FF7BCA45AF3+3322739]
+	GetHandleVerifier [0x00007FF7BC746A1A+180890]
+	GetHandleVerifier [0x00007FF7BC74E11F+211359]
+	GetHandleVerifier [0x00007FF7BC735294+109332]
+	GetHandleVerifier [0x00007FF7BC735442+109762]
+	GetHandleVerifier [0x00007FF7BC71BA59+4825]
+	BaseThreadInitThunk [0x00007FFFBCF0259D+29]
+	RtlUserThreadStart [0x00007FFFBE02AF58+40]
+
+2025-05-23 17:02:34.735 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 17:02:34.736 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 17:04:13.182 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 17:04:13.188 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 17:04:18.441 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 17:06:34.645 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 17:06:35.770 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 22:51:27.513 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 22:51:27.519 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 22:51:32.708 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 22:51:48.152 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 22:52:25.674 [main] INFO  config.EnhancedLogger - Loaded default submission type from config.json: New Business
+2025-05-23 22:52:25.683 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 22:52:31.040 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 22:52:43.244 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 22:52:44.839 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 22:53:38.991 [main] INFO  config.EnhancedLogger - Default submission type not found in config.json, using hardcoded value
+2025-05-23 22:53:38.997 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 22:53:43.545 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 22:53:53.091 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 22:53:54.091 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 22:54:03.783 [main] INFO  config.EnhancedLogger - Default submission type not found in config.json, using hardcoded value
+2025-05-23 22:54:03.787 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 22:54:08.372 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 22:54:18.247 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 22:54:19.849 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
+2025-05-23 22:56:59.910 [main] INFO  config.EnhancedLogger - Default submission type not found in config.json, using hardcoded value
+2025-05-23 22:56:59.935 [main] INFO  config.EnhancedLogger - Configuration loaded successfully from JSON
+2025-05-23 22:57:10.089 [main] INFO  config.EnhancedLogger - Browser started: CHROME v with implicit wait: 30s
+2025-05-23 22:58:06.236 [main] INFO  config.EnhancedLogger - Closing browser
+2025-05-23 22:58:06.780 [main] INFO  config.EnhancedLogger - Force killing any hanging Chrome processes
